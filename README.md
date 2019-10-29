@@ -1,9 +1,9 @@
 # Cogip
-# logyourselfin
-database creation and interaction
 
 ## Group exercise
-This exercise makes us consolidate our knowledge in PHP and collaborate and use professional coding skill using the MVC structure. The project will be evaluated on :
+This exercise makes us consolidate our knowledge in PHP, databases, SQL queries and collaborate + use professional development skill using the MVC structure. 
+
+The project will be evaluated on :
 - use of different URL parameters and filename
 - use of sanitization to avoid SQL injections
 - validation of data so that full-admin doesn’t input whatever
@@ -27,7 +27,9 @@ Julien, Kiza, Laly
 ![dbrelation](dbrelations.jpg)
 
 ## The mission
-The boss of the account team in the Cogip company needs to have access to a DB which will reference all invoices made in the Cogip company, all contacts linked to the transactions, the company, the type of company which had a transaction with Cogip. The goal is to create a system for the super user which will have access to all CRUD actions, the normal user which will have the possibility to CR actions and another access for the normal user which will only have the access to the R action. 10 Days to make this project. Part of BeCode training.
+The boss of the account team in the Cogip company needs to have access to a DB which will reference all invoices made in the Cogip company, all contacts linked to the transactions, the company, the type of company which had a transaction with Cogip. 
+
+The goal is to create a system for the super user which will have access to all CRUD actions, the normal user which will have the possibility to CR actions and another access for the normal user which will only have the access to the R action. 10 Days to make this project. Part of BeCode training in Web Development.
 
 ## Methodology
 Day 1:
