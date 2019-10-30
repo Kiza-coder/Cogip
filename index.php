@@ -1,5 +1,6 @@
 <?php
-include 'model/model.php';
+require 'model/model.php';
+require 'controller/controller.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,7 @@ include 'model/model.php';
     </form>
 
     <?php 
-
+        //menu header
         switch($_GET['1']){
             case 'home':
                 include 'view/home.php';
@@ -29,11 +30,13 @@ include 'model/model.php';
             case 'invoices':
                 include 'view/invoices.php';
                 break;
+            // page companies with two types either client or provider
             case 'companies':
-                include 'view/companies.php';
+                displayCompaniesClients();
+                displayCompaniesProvider();
                 break;
             case 'contacts':
-            displayContact()
+                displayContact();
                 break;
             case 'connexion':
                 include 'view/connexion.php';
