@@ -1,13 +1,14 @@
 <?php
 
 
-// function displayContact(){
-//     $db = dbConnect();
-//     $req = $db -> prepare('SELECT * FROM contacts WHERE last_name="bou"');
-//     $req-> execute();
-//     $contact = $req -> fetch(PDO::FETCH_ASSOC);
-//     var_dump($contact);
-// }
+function queryContact(){
+    $db = dbConnect();
+    $req = $db -> prepare('SELECT * FROM contacts WHERE last_name="bou"');
+    $req-> execute();
+    $contact = $req -> fetch(PDO::FETCH_ASSOC);
+    var_dump($contact);
+}
+
 function dbConnect()
 {
     try{

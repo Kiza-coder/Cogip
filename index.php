@@ -33,7 +33,7 @@ include 'model/model.php';
                 include 'view/companies.php';
                 break;
             case 'contacts':
-                include 'view/contacts.php';
+            displayContact()
                 break;
             case 'connexion':
                 include 'view/connexion.php';
