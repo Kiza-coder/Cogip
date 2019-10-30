@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,3 +41,8 @@
 </body>
 
 </html>
+=======
+<?php
+include 'model/model.php';
+?>
+>>>>>>> lalytest
