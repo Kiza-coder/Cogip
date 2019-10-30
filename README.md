@@ -1,11 +1,17 @@
 # Cogip
 
 ## Group exercise
+<<<<<<< HEAD
 
 This exercise makes us consolidate our knowledge in PHP, databases, SQL queries and collaborate + use professional development skill using the MVC structure.
 
 The project will be evaluated on :
 
+=======
+This exercise makes us consolidate our knowledge in PHP, databases, SQL queries and collaborate + use professional development skill using the MVC structure. 
+
+The project will be evaluated on :
+>>>>>>> f8f5ac630c1840520a36afadcb52f683c49badff
 - use of different URL parameters and filename
 - use of sanitization to avoid SQL injections
 - validation of data so that full-admin doesn’t input whatever
@@ -14,8 +20,12 @@ The project will be evaluated on :
 - use of aliases in SQL requests
 - implementation of a CRUD to read, add, modify and delete data
 
+<<<<<<< HEAD
 we should be able by the end of this challenge
 
+=======
+we should be able by the end of this challenge 
+>>>>>>> f8f5ac630c1840520a36afadcb52f683c49badff
 - crypt password in a database
 - use an MVC structure
 - use a router
@@ -25,6 +35,7 @@ we should be able by the end of this challenge
 Team members :
 Julien, Kiza, Laly
 
+<<<<<<< HEAD
 ## Database relations drawing
 
 ![dbrelation](dbrelations.jpg)
@@ -32,10 +43,19 @@ Julien, Kiza, Laly
 ## The mission
 
 The boss of the account team in the Cogip company needs to have access to a DB which will reference all invoices made in the Cogip company, all contacts linked to the transactions, the company, the type of company which had a transaction with Cogip.
+=======
+
+## Database relations drawing
+![dbrelation](dbrelations.jpg)
+
+## The mission
+The boss of the account team in the Cogip company needs to have access to a DB which will reference all invoices made in the Cogip company, all contacts linked to the transactions, the company, the type of company which had a transaction with Cogip. 
+>>>>>>> f8f5ac630c1840520a36afadcb52f683c49badff
 
 The goal is to create a system for the super user which will have access to all CRUD actions, the normal user which will have the possibility to CR actions and another access for the normal user which will only have the access to the R action. 10 Days to make this project. Part of BeCode training in Web Development.
 
 ## Methodology
+<<<<<<< HEAD
 
 Day 1:
 We decide to give some time to planning the project
@@ -47,6 +67,16 @@ We decide to give some time to planning the project
 
 Day 2:
 
+=======
+Day 1:
+We decide to give some time to planning the project
+- Understanding how MVC works
+- Creating the files organisations within our project
+- Understanding what we need to make this project happen.
+    - the tables needed
+
+Day 2:
+>>>>>>> f8f5ac630c1840520a36afadcb52f683c49badff
 - Creating the DB
 - Drawing how the tables will relate to each other
 - Creating the relations with the DB using foreign keys
@@ -63,14 +93,28 @@ Day 10:
 
 ## Content
 
+<<<<<<< HEAD
 ## Tools
 
+=======
+
+## Tools
+>>>>>>> f8f5ac630c1840520a36afadcb52f683c49badff
 - HTML, CSS
 - PHP
 - PHP myadmin
 
+<<<<<<< HEAD
 ## Progression
 
 ## Credits
 
 Made in Belgium
+=======
+
+## Progression
+
+
+## Credits
+Made in Belgium
+>>>>>>> f8f5ac630c1840520a36afadcb52f683c49badff
