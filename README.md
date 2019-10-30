@@ -19,8 +19,10 @@ we should be able by the end of this challenge
 - setup a session
 - allow access to certain page in regards to permissions
 
-Team members :
-Julien, Kiza, Laly
+Team members and inputs to the projects :
+Julien :
+Kiza :
+Laly :
 
 
 ## Database relations drawing

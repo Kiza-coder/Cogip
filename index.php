@@ -1,1 +1,3 @@
-azd
+<?php
+include 'model/model.php';
+?>
