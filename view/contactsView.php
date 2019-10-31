@@ -20,7 +20,7 @@ $lastname = $key['last_name'];
 $phone = $key['phone'];
 $email = $key['email'];
 echo <<<EOF
-<tr><td><a href="detailsContact.php/id=$url">$firstname $lastname</a></td><td>$phone</td><td>$email</td></tr>
+<tr><td><a href="?id=$url&val='invoice'">$firstname $lastname</a></td><td>$phone</td><td>$email</td></tr>
 EOF;
 }
 ?>

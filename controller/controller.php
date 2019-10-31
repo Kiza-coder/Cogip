@@ -2,9 +2,13 @@
 require 'model/model.php';
 
 function displayContact(){
-    
-    queryContact();
-    include 'view/contacts.php';
+    $req = queryContact();
+    include 'view/contactsView.php';
 }
+
+function displayInvoices(){
+	$req = queryInvoices();
+	include 'view/invoicesView.php';
+	}
 
 ?>
