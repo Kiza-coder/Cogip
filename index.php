@@ -1,5 +1,8 @@
 <?php
-include 'model/model.php';
+session_start();
+require 'controller/controller.php';
+
+$_SESSION['id'] = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,16 +15,24 @@ include 'model/model.php';
 </head>
 
 <body>
-    <form action="" method="get">
-        <button type='submit' value='home' name='1'>home</button>
-        <button type='submit' value='invoices' name='1'>invoices</button>
-        <button type='submit' value='companies' name='1'>companies</button>
-        <button type='submit' value='contacts' name='1'>contacts</button>
-        <button type='submit' value='connexion' name='1'>connexion</button>
-    </form>
+    <header>
+        <form action="" method="get">
+            <button type='submit' value='home' name='1'>home</button>
+            <button type='submit' value='invoices' name='1'>invoices</button>
+            <button type='submit' value='companies' name='1'>companies</button>
+            <button type='submit' value='contacts' name='1'>contacts</button>
+            <?php if ($_SESSION['id'] == 3){
+                echo "<button type='submit' value='connexion' name='1'>connexion</button>";
+            } else {
+                echo "<button type='submit' value='login' name='1'>Admin</button>";
+            }
+            ?>
+
+        </form>
+    </header>
 
     <?php 
-
+    
         switch($_GET['1']){
             case 'home':
                 include 'view/home.php';
@@ -33,7 +44,7 @@ include 'model/model.php';
                 include 'view/companies.php';
                 break;
             case 'contacts':
-            displayContact()
+                displayContact();
                 break;
             case 'connexion':
                 include 'view/connexion.php';

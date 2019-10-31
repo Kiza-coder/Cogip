@@ -1,7 +1,9 @@
 <?php 
+require 'model/model.php';
 
 function displayContact(){
-    $req = queryContact();
+    
+    queryContact();
     include 'view/contacts.php';
 }
 
