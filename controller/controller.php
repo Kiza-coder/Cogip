@@ -6,13 +6,11 @@ function displayContact(){
 }
 
 ### companies ###
-function displayCompaniesClients(){
-    include 'view/companies.php';
+function displayCompaniesClientsandProviders(){
     $req = queryCompanies();
+    $requestp = queryCompaniesProvider();
+    include 'view/companies.php';
 }
 
-function displayCompaniesProvider(){
-    $req = queryCompaniesProvider();
-}
 
 ?>

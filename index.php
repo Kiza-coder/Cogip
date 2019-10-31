@@ -32,8 +32,7 @@ require 'controller/controller.php';
                 break;
             // page companies with two types either client or provider
             case 'companies':
-                displayCompaniesClients();
-                displayCompaniesProvider();
+                displayCompaniesClientsandProviders();
                 break;
             case 'contacts':
                 displayContact();

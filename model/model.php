@@ -5,20 +5,14 @@ function queryCompanies(){
     $db = dbConnect();
     $req = $db -> prepare("SELECT name, country, VAT FROM companies WHERE id_type_companies='1'");
     $req -> execute();
-    $company = $req -> fetch(PDO::FETCH_ASSOC);
-    echo '<pre>';
-    print_r($company);
-    echo '</pre>';
+    return $req;
 }
 
 function queryCompaniesProvider(){
     $db = dbConnect();
-    $req = $db -> prepare("SELECT name, country, VAT FROM companies WHERE id_type_companies='2'");
-    $req -> execute();
-    $company = $req -> fetch(PDO::FETCH_ASSOC);
-    echo '<pre>';
-    print_r($company);
-    echo '</pre>';
+    $requestp = $db -> prepare("SELECT name, country, VAT FROM companies WHERE id_type_companies='2'");
+    $requestp -> execute();
+    return $requestp;
 }
 
 function queryContact(){
