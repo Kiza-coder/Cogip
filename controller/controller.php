@@ -3,7 +3,7 @@ require 'model/model.php';
 
 function displayContact(){
     
-    queryContact();
+    $req = queryContact();
     include 'view/contactsView.php';
 }
 
