@@ -61,8 +61,8 @@ Day 3:
 - working on displaying elements from db in the right pages
 - understanding how url work to change pages with links
   - global page companies + detailled page if user clicks on link (Laly)
-  - global page contacts + detailled page contacts (Kiza)
-  - global page invoices + detailled page invoices (Julien)
+  - global page contacts + detailled page if user clicks on link (Kiza)
+  - global page invoices + detailled page if user clicks on link (Julien)
 
 
 
