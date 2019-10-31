@@ -35,19 +35,19 @@ $_SESSION['id'] = 2;
     
         switch($_GET['1']){
             case 'home':
-                include 'view/home.php';
+                include 'view/homeView.php';
                 break;
             case 'invoices':
-                include 'view/invoices.php';
+                include 'view/invoicesView.php';
                 break;
             case 'companies':
-                include 'view/companies.php';
+            displayCompaniesClientsandProviders();
                 break;
             case 'contacts':
                 displayContact();
                 break;
             case 'connexion':
-                include 'view/connexion.php';
+                include 'view/connexionView.php';
                 break;
         }
      ?>
