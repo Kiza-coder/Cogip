@@ -17,10 +17,10 @@ $_SESSION['id'] = 2;
 <body>
     <header>
         <form action="" method="get">
-            <button type='submit' value='home' name='1'>home</button>
-            <button type='submit' value='invoices' name='1'>invoices</button>
-            <button type='submit' value='companies' name='1'>companies</button>
-            <button type='submit' value='contacts' name='1'>contacts</button>
+            <button type='submit' value='home' name='value'>home</button>
+            <button type='submit' value='invoices' name='value'>invoices</button>
+            <button type='submit' value='companies' name='value'>companies</button>
+            <button type='submit' value='contacts' name='value'>contacts</button>
             <?php if ($_SESSION['id'] == 3){
                 echo "<button type='submit' value='connexion' name='1'>connexion</button>";
             } else {
@@ -32,8 +32,8 @@ $_SESSION['id'] = 2;
     </header>
 
     <?php 
-    
-        switch($_GET['1']){
+
+        switch($_GET['value']){
             case 'home':
                 include 'view/homeView.php';
                 break;
@@ -44,7 +44,11 @@ $_SESSION['id'] = 2;
                 include 'view/companiesView.php';
                 break;
             case 'contacts':
-                displayContact();
+                if(isset($_GET['id'])){
+                    include 'view/contactsDetailsView.php';
+                } else {
+                    displayContact();
+                }
                 break;
             case 'connexion':
                 include 'view/connexionView.php';

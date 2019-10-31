@@ -14,9 +14,9 @@ function dbConnect()
 
 function queryContact(){
     $db = dbConnect();
-    $req = $db -> prepare('SELECT * FROM contacts');
+    $req = $db -> prepare('SELECT * FROM contacts AS cont JOIN companies AS com ON cont.companies_id = com.id');
     $req-> execute();
  
-    return $contact;
+    return $req;
 }
 ?>
