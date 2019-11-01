@@ -25,7 +25,7 @@ $value = "invoices";
 echo <<<EOF
 <tr><td><a href="?id=$url&value=$value">$numInvoice</a></td>
 <td>$date</td>
-<td>$name ***********  $last_name</td>
+<td>$name </td>
 <td>$type_companies</td>
 
 

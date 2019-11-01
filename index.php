@@ -42,7 +42,7 @@ $_SESSION['id'] = 2;
                 break;
             case 'invoices':
             if(isset($_GET["id"])){
-                include 'view/invoicesDetailsView.php';
+                displayInvoicesDetails($_GET["id"]);
             }
             else{
                  displayInvoices();
@@ -55,7 +55,6 @@ $_SESSION['id'] = 2;
             case 'contacts':
             
                 displayContact();
-            
                break;
 
             case 'connexion':
