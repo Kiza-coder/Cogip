@@ -40,6 +40,7 @@ $_SESSION['id'] = 2;
                 include 'view/invoicesView.php';
                 break;
             case 'companies':
+            // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
             if(isset($_GET['id'])){
                 include 'view/companiesDetailsView.php';
             } else {

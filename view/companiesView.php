@@ -7,6 +7,7 @@
     <th>VAT</th>
 </tr>
 <?php 
+##### table for clients #####
 $company = $req -> fetchAll(PDO::FETCH_ASSOC);
     // loops in each company which is a client
     foreach ($company as $key){
@@ -15,8 +16,9 @@ $company = $req -> fetchAll(PDO::FETCH_ASSOC);
     $namecomp = $key['name'];
     $countrycomp = $key['country'];
     $VATcountry = $key['VAT'];
+    $valueoptions = $_GET['value'];
     echo <<<EOF
-    <tr><td><a href="?id=$url">$namecomp</a></td><td> $countrycomp </td><td> $VATcountry </td></tr>
+    <tr><td><a href="?id=$url&value=$valueoptions">$namecomp</a></td><td> $countrycomp </td><td> $VATcountry </td></tr>
 EOF;
 }
 ?>
@@ -30,6 +32,7 @@ EOF;
     <th>VAT</th>
 </tr>
 <?php
+####### table for clients ######
 $company = $requestp -> fetchAll(PDO::FETCH_ASSOC);
 // looping to create link
 foreach($company as $key){

@@ -1,12 +1,12 @@
 <?php 
 require 'model/model.php';
-
+### functions contact page ###
 function displayContact(){ 
     $req = queryContact();
     include 'view/contactsView.php';
 }
 
-### companies ###
+### functions companies ###
 function displayCompaniesClientsandProviders(){
     $req = queryCompanies();
     $requestp = queryCompaniesProvider();

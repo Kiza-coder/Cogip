@@ -1,5 +1,5 @@
 <?php   
-#### functions for companies page#####
+#### functions for companies page #####
 // function which prepares the query, executes the query and copies the result
 function queryCompanies(){
     $db = dbConnect();
