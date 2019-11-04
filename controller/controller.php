@@ -18,7 +18,7 @@ function displayDetailsContact($id) {
     $request = queryContactDetailsInvoices($id);
     include 'view/contactsDetailsView.php';
     $req = queryContact();
-    include 'view/contactsView.php';
+
 }
 
 function displayInvoices(){
