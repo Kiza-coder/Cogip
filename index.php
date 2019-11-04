@@ -17,7 +17,7 @@ $_SESSION['id'] = 2;
 <body>
     <header>
         <form action="" method="get">
-            <button type='submit' value='home' name='home'>home</button>
+            <button type='submit' value='home' name='value'>home</button>
             <button type='submit' value='invoices' name='value'>invoices</button>
             <button type='submit' value='companies' name='value'>companies</button>
             <button type='submit' value='contacts' name='value'>contacts</button>
@@ -28,16 +28,24 @@ $_SESSION['id'] = 2;
             }
             ?>
         </form>
+
     </header>
 
     <?php 
+
+     if(isset($_GET['value'])){
  #### switch in for different button options in menu ###   
         switch($_GET['value']){
             case 'home':
                 include 'view/homeView.php';
                 break;
             case 'invoices':
-                include 'view/invoicesView.php';
+            if(isset($_GET["id"])){
+                displayInvoicesDetails($_GET["id"]);
+            }
+            else{
+                 displayInvoices();
+            }
                 break;
             case 'companies':
             // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
@@ -48,12 +56,20 @@ $_SESSION['id'] = 2;
             }
             break;
             case 'contacts':
-                displayContact();
+                if(isset($_GET['id'])){
+                    displayDetailsContact($_GET['id']);
+
+                } else {
+                    displayContact();
+                }
                 break;
             case 'connexion':
                 include 'view/connexionView.php';
                 break;
         }
+    
+
+}   
      ?>
 </body>
 

@@ -55,6 +55,7 @@ Day 2:
 - Testing the database and exporting it to share it
 
 Day 3:
+
 - create the header common to all pages
 - working on displaying elements from db (companies, contacts)
 - prepare the router
@@ -74,6 +75,7 @@ Day 10:
 - HTML, CSS
 - PHP
 - PHP myadmin
+- SQL
 
 ## Progression
 
