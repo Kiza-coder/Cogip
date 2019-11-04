@@ -14,7 +14,7 @@
     <?php
 
 foreach($contact as $key){
-    $url = $key['id'];
+    $url = $key['cont_id'];
     $firstname = $key['first_name'];
     $lastname = $key['last_name'];
     $phone = $key['phone'];
@@ -22,7 +22,7 @@ foreach($contact as $key){
     $name = $key['name'];
     $value = $_GET['value'];
 echo <<<EOF
-<tr><td>$url</td><td><a href="?id=$url&value=$value">$firstname $lastname</a></td><td>$phone</td><td>$email</td><td>$name</td></tr>
+<tr><td><a href="?id=$url&value=$value">$firstname $lastname</a></td><td>$phone</td><td>$email</td><td>$name</td></tr>
 EOF;
 }
 ?>

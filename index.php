@@ -45,7 +45,8 @@ $_SESSION['id'] = 2;
                 break;
             case 'contacts':
                 if(isset($_GET['id'])){
-                    include 'view/contactsDetailsView.php';
+                    displayDetailsContact($_GET['id']);
+
                 } else {
                     displayContact();
                 }
