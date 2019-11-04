@@ -3,7 +3,7 @@
 function dbConnect()
 {
     try{
-        $db = new PDO ('mysql:host=localhost;dbname=cogip','root','');
+        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
         return $db;
     }
     catch(Exeption $e){

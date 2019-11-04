@@ -30,11 +30,7 @@ $_SESSION['id'] = 2;
 
         </form>
 
-         <form action="" method="post">
-            <button type='submit' value='invoice' name='option_create'>Create Invoice</button>
-             <button type='submit' value='contact' name='option_create'>Create Contact</button>
-              <button type='submit' value='compagnie' name='option_create'>Create Compagnie</button>
-        </form>
+         
     
         
 
