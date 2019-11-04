@@ -29,16 +29,23 @@ $_SESSION['id'] = 2;
             ?>
 
         </form>
+
     </header>
 
     <?php 
 
+     if(isset($_GET['value'])){
         switch($_GET['value']){
             case 'home':
                 include 'view/homeView.php';
                 break;
             case 'invoices':
-                include 'view/invoicesView.php';
+            if(isset($_GET["id"])){
+                displayInvoicesDetails($_GET["id"]);
+            }
+            else{
+                 displayInvoices();
+            }
                 break;
             case 'companies':
                 include 'view/companiesView.php';
@@ -55,6 +62,9 @@ $_SESSION['id'] = 2;
                 include 'view/connexionView.php';
                 break;
         }
+    
+
+}   
      ?>
 </body>
 
