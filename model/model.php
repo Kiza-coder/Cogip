@@ -12,7 +12,7 @@ function dbConnect()
     }
 }
 ####### FUNCTIONS FOR COMPANIES ########
-// functions which prepares the query, executes the query and copies the result
+// functions which prepares the query, executes the query
 function queryCompaniesClients(){
     $db = dbConnect();
     $req = $db -> prepare("SELECT * FROM companies WHERE id_type_companies='1'ORDER BY name ASC");
@@ -25,6 +25,7 @@ function queryCompaniesProvider(){
     $req-> execute();
     return $req;
 }
+### COMPANIES DETAIL ###
 function queryDetailsCompany($id){
     $db = dbConnect();
     // $req = $db -> prepare("SELECT * FROM companies INNER JOIN type ON companies.id_type_companies = type.id WHERE companies.id=$id");
@@ -37,13 +38,20 @@ function queryDetailsCompany($id){
     $req -> execute();
     return $req;
 }
+
 function queryDetailsInvoiceForCompany($id){
     $db = dbConnect();
-    $req = $db -> prepare("SELECT number, date, contacts.email 
-                            FROM invoices
-                            INNER JOIN contacts ON invoices.id_contacts = contacts.id
-                            WHERE invoices.id=$id");
+    $requestInv = $db -> prepare("SELECT number AS n, date AS d, email AS e 
+                                FROM invoices
+                                INNER JOIN contacts ON invoices.id = contacts.id");
+    $requestInv -> execute();
+    return $requestInv;
 }
+
+
+
+
+
 
 ##### CONTACTS #####
 function queryDetailsContact($id){
@@ -58,7 +66,7 @@ function queryDetailsContact($id){
 }
 function queryContact(){
     $db = dbConnect();
-    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name 
+    $req = $db -> prepare("SELECT contacts.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name 
                            FROM contacts AS cont 
                            JOIN companies AS com 
                            ON cont.id_companies = com.id");

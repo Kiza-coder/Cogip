@@ -12,7 +12,17 @@ function displayCompaniesClientsandProviders(){
     $requestp = queryCompaniesProvider();
     include 'view/companiesView.php';
 }
-
+function displayCompanyDetail($id){
+    $req = queryDetailsCompany($id);
+    $request = queryDetailsContact($id);
+    $requestDetailClient = queryDetailsInvoiceForCompany($id);
+    include 'view/clientDetailsView.php';
+}
+// function displayDetailsInvoiceCompany($id){
+//     $requestInvoices = queryDetailsInvoiceForCompany($id);
+//     include 'view/clientDetailsView.php';
+// }
+### functions contact ###
 function displayDetailsContact($id) {
     $req = queryContactDetails($id);
     $request = queryContactDetailsInvoices($id);
@@ -21,14 +31,10 @@ function displayDetailsContact($id) {
     include 'view/contactsView.php';
 }
 
+### functions invoices ###
 function displayInvoices(){
 	$req = queryInvoices();
 	include 'view/invoicesView.php';
-}
-    function displayCompanyDetail($id){
-    $req = queryDetailsCompany($id);
-    $request = queryDetailsContact($id);
-    include 'view/clientDetailsView.php';
 }
 
 function displayInvoicesDetails($id){

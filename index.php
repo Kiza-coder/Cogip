@@ -50,7 +50,7 @@ $_SESSION['id'] = 2;
             case 'companies':
             // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
             if(isset($_GET['id'])){
-                displayCompanyDetail($_GET['id']);
+            displayCompanyDetail($_GET['id']);
             } else {
             displayCompaniesClientsandProviders();
             }
@@ -58,7 +58,6 @@ $_SESSION['id'] = 2;
             case 'contacts':
                 if(isset($_GET['id'])){
                     displayDetailsContact($_GET['id']);
-
                 } else {
                     displayContact();
                 }

@@ -22,6 +22,8 @@ $type = $company['type_companies'];
 <?php
 ### CONTACT PERSONS ###
 $contact = $request -> fetchAll(PDO::FETCH_ASSOC);
+var_dump($contact);
+
 foreach ($contact as $key){
     $url = $key['cont_id'];
     $lastname = $key['last_name'];
@@ -39,10 +41,25 @@ EOF;
 <h3>Invoices</h3>
 <table>
 <tr>
-    <th>Invoices number</th>
+    <th>Invoice number</th>
     <th>Date</th>
-    <th>Contact</th>
+    <th>Contact Person</th>
 </tr>
+<?php
+### INVOICES RELATED TO COMPANIES###
+$invoice = $requestDetailClient -> fetchAll(PDO::FETCH_ASSOC);
+var_dump($invoice);
+foreach($invoice as $key){
+    $url = $key['inv_id'];
+    $numberinv = $key['n'];
+    $dateinv = $key['d'];
+    $contactinv = $key['e'];
+    $valueoptions = "invoices";
+echo <<<EOF
+<tr><td><a href="?id=$url&value=$valueoptions">$numberinv</td><td>$dateinv</td><td>$contactinv</td></tr>
+EOF;
+}
+?>
 </table>
 <?php
 // echo "<pre>";
