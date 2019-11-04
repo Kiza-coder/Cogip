@@ -8,9 +8,14 @@ function displayContact(){
 
 ### functions companies ###
 function displayCompaniesClientsandProviders(){
-    $req = queryCompanies();
+    $req = queryCompaniesClients();
     $requestp = queryCompaniesProvider();
     include 'view/companiesView.php';
+}
+
+function displayCompanyDetail($id){
+    $req = queryDetailsCompany($id);
+    include 'view/clientDetailsView.php';
 }
 
 ?>
