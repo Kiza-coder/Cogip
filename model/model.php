@@ -25,6 +25,7 @@ function queryCompaniesProvider(){
     $requestp -> execute();
     return $requestp;
 }
+### FUNCTIONS DETAIL COMPANIES PAGE ###
 // recupere id du click
 function queryDetailsCompany($id){
     $db = dbConnect();
@@ -35,6 +36,13 @@ function queryDetailsCompany($id){
     $req -> execute();
     return $req;
 }
+function queryDetailsContact($id){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT name, phone, email FROM contacts INNER JOIN companies ON contacts.id_companies");
+    return $req;
+}
+
+
 
 
 ?>
