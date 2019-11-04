@@ -67,6 +67,11 @@ Day 3:
 
 
 Day 4:
+- everyone working on their on parts (company, contacts, invoices)
+  - SQL queries
+  - display elements on the global page
+  - display elements on the detailled page
+ - Merge all work to the development branch 
 Day 5:
 Day 6:
 Day 7:
