@@ -9,7 +9,7 @@ $_SESSION['id'] = 2;
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=value.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
@@ -22,31 +22,22 @@ $_SESSION['id'] = 2;
             <button type='submit' value='companies' name='value'>companies</button>
             <button type='submit' value='contacts' name='value'>contacts</button>
             <?php if ($_SESSION['id'] == 3){
-                echo "<button type='submit' value='connexion' name='1'>connexion</button>";
+                echo "<button type='submit' value='connexion' name='value'>connexion</button>";
             } else {
-                echo "<button type='submit' value='login' name='1'>Admin</button>";
+                echo "<button type='submit' value='login' name='value'>Admin</button>";
             }
             ?>
 
         </form>
 
          
-    
-        
 
     </header>
 
     <?php 
 
-            if(isset($_POST['option_create']))
-            {
-                if($_POST['option_create'] == 'invoice')
-                {
-                    insertInvoice($_POST);
-                }
-            }
-
      if(isset($_GET['value'])){
+ #### switch in for different button options in menu ###   
         switch($_GET['value']){
             case 'home':
                 include 'view/homeView.php';
@@ -58,16 +49,23 @@ $_SESSION['id'] = 2;
             else{
                  displayInvoices();
             }
-               
                 break;
             case 'companies':
-                include 'view/companiesView.php';
-                break;
+            // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
+            if(isset($_GET['id'])){
+                displayCompanyDetail($_GET['id']);
+            } else {
+            displayCompaniesClientsandProviders();
+            }
+            break;
             case 'contacts':
-            
-                displayContact();
-               break;
+                if(isset($_GET['id'])){
+                    displayDetailsContact($_GET['id']);
 
+                } else {
+                    displayContact();
+                }
+                break;
             case 'connexion':
                 include 'view/connexionView.php';
                 break;

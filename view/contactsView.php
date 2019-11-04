@@ -14,13 +14,15 @@
     <?php
 
 foreach($contact as $key){
-$url = $key['id'];
-$firstname = $key['first_name'];
-$lastname = $key['last_name'];
-$phone = $key['phone'];
-$email = $key['email'];
+    $url = $key['cont_id'];
+    $firstname = $key['first_name'];
+    $lastname = $key['last_name'];
+    $phone = $key['phone'];
+    $email = $key['email'];
+    $name = $key['name'];
+    $value = $_GET['value'];
 echo <<<EOF
-<tr><td><a href="?id=$url&val='invoice'">$firstname $lastname</a></td><td>$phone</td><td>$email</td></tr>
+<tr><td><a href="?id=$url&value=$value">$firstname $lastname</a></td><td>$phone</td><td>$email</td><td>$name</td></tr>
 EOF;
 }
 ?>
