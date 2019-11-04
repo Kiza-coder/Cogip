@@ -11,8 +11,8 @@ $first_name = $invoices['first_name'];
 $last_name = $invoices['last_name'];    
 $email = $invoices['email'];    
 $phone = $invoices['phone'];
-$value_company = "company";
-$value_contact = "contact";   
+$value_company = "companies";
+$value_contact = "contacts";   
 
 
 echo <<<EOF

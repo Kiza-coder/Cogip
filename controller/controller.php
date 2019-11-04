@@ -27,6 +27,7 @@ function displayInvoices(){
 }
     function displayCompanyDetail($id){
     $req = queryDetailsCompany($id);
+    $request = queryDetailsContact($id);
     include 'view/clientDetailsView.php';
 }
 
