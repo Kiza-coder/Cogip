@@ -1,9 +1,16 @@
 <?php 
 require 'model/model.php';
-
-function displayContact(){
+### functions contact page ###
+function displayContact(){ 
     $req = queryContact();
     include 'view/contactsView.php';
+}
+
+### functions companies ###
+function displayCompaniesClientsandProviders(){
+    $req = queryCompaniesClients();
+    $requestp = queryCompaniesProvider();
+    include 'view/companiesView.php';
 }
 
 function displayDetailsContact($id) {
@@ -17,6 +24,10 @@ function displayDetailsContact($id) {
 function displayInvoices(){
 	$req = queryInvoices();
 	include 'view/invoicesView.php';
+}
+    function displayCompanyDetail($id){
+    $req = queryDetailsCompany($id);
+    include 'view/clientDetailsView.php';
 }
 
 function displayInvoicesDetails($id){
