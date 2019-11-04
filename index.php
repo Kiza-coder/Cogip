@@ -29,13 +29,28 @@ $_SESSION['id'] = 2;
             ?>
 
         </form>
+
+         <form action="" method="post">
+            <button type='submit' value='invoice' name='option_create'>Create Invoice</button>
+             <button type='submit' value='contact' name='option_create'>Create Contact</button>
+              <button type='submit' value='compagnie' name='option_create'>Create Compagnie</button>
+        </form>
+    
+        
+
     </header>
 
     <?php 
 
+            if(isset($_POST['option_create']))
+            {
+                if($_POST['option_create'] == 'invoice')
+                {
+                    insertInvoice($_POST);
+                }
+            }
 
-
-     
+     if(isset($_GET['value'])){
         switch($_GET['value']){
             case 'home':
                 include 'view/homeView.php';
@@ -63,7 +78,7 @@ $_SESSION['id'] = 2;
         }
     
 
-
+}   
      ?>
 </body>
 

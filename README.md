@@ -70,6 +70,7 @@ Day 10:
 - HTML, CSS
 - PHP
 - PHP myadmin
+- SQL
 
 ## Progression
 

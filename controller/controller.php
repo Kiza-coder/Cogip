@@ -15,4 +15,15 @@ function displayInvoicesDetails($id){
 	$req = queryInvoicesDetails($id);
 	include 'view/invoicesDetailsView.php';
 }
+
+function insertInvoice($array){
+	$req_companie = queryCompanie();
+	if(isset($_POST['contact_select']))
+	{
+		$req_companie = queryCompanie();
+		include 'view/invoiceInsertView.php';
+	}
+	include 'view/invoiceInsertView.php';
+	
+}
 ?>

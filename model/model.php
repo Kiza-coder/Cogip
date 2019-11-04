@@ -19,6 +19,13 @@ function queryContact(){
     return $req;
 }
 
+function queryCompanie(){
+    $db = dbConnect();
+    $req = $db -> prepare('SELECT * FROM companies');
+    $req-> execute();
+    return $req;
+}
+
 function queryInvoices(){
          $db = dbConnect();
         $req = $db -> prepare("SELECT * FROM invoices AS i
@@ -45,6 +52,25 @@ function queryInvoicesDetails($id){
         $req-> execute();
         return $req;
 }
+
+function queryInvoiceInsert($array)
+{
+        $date = date("m.d.y");
+        $number = $_POST['number'];
+        $id_companie = $_POST['id_companie'];
+        $id_contact = $_POST['id_contact'];
+        $db = dbConnect();
+        $req = $db -> prepare("INSERT INTO `invoices` (`date`, `number`, `id_companies`, `id_contacts`) VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
+        $req->execute(array(
+                'new_date' => $date,
+                'new_number' => $number,
+                    'new_id_compagnie' => $id_companie,
+                'new_id_contact' => $id_contact
+        ));
+
+}
+
+
 
 
 ?>
