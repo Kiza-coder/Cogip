@@ -41,9 +41,11 @@ function queryDetailsCompany($id){
 
 function queryDetailsInvoiceForCompany($id){
     $db = dbConnect();
-    $requestInv = $db -> prepare("SELECT number AS n, date AS d, email AS e 
+    $requestInv = $db -> prepare("SELECT invoices.id AS inv_id, number AS n, date AS d, email AS e 
                                 FROM invoices
-                                INNER JOIN contacts ON invoices.id = contacts.id");
+                                INNER JOIN companies ON invoices.id_companies = companies.id
+                                INNER JOIN contacts ON invoices.id_contacts = contacts.id
+                                WHERE companies.id=$id");
     $requestInv -> execute();
     return $requestInv;
 }

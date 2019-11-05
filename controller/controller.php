@@ -18,10 +18,7 @@ function displayCompanyDetail($id){
     $requestDetailClient = queryDetailsInvoiceForCompany($id);
     include 'view/clientDetailsView.php';
 }
-// function displayDetailsInvoiceCompany($id){
-//     $requestInvoices = queryDetailsInvoiceForCompany($id);
-//     include 'view/clientDetailsView.php';
-// }
+
 ### functions contact ###
 function displayDetailsContact($id) {
     $req = queryContactDetails($id);

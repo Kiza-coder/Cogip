@@ -22,7 +22,7 @@ $type = $company['type_companies'];
 <?php
 ### CONTACT PERSONS ###
 $contact = $request -> fetchAll(PDO::FETCH_ASSOC);
-var_dump($contact);
+// var_dump($contact);
 
 foreach ($contact as $key){
     $url = $key['cont_id'];
@@ -48,7 +48,7 @@ EOF;
 <?php
 ### INVOICES RELATED TO COMPANIES###
 $invoice = $requestDetailClient -> fetchAll(PDO::FETCH_ASSOC);
-var_dump($invoice);
+// var_dump($invoice);
 foreach($invoice as $key){
     $url = $key['inv_id'];
     $numberinv = $key['n'];
