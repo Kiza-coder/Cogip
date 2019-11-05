@@ -30,7 +30,7 @@ function queryCompaniesProvider(){
 
 function queryContact(){
     $db = dbConnect();
-    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name 
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.id AS com_id, com.name 
                            FROM contacts AS cont 
                            JOIN companies AS com 
                            ON cont.id_companies = com.id");
