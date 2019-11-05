@@ -27,13 +27,33 @@ $_SESSION['id'] = 2;
                 echo "<button type='submit' value='login' name='value'>Admin</button>";
             }
             ?>
+
+        </form>
+
+
+
+        <form action="" method="GET">
+            <button type='submit' value='invoice' name='option_create'>create_invoice</button>
+
+            <button type='submit' value='contact' name='option_create'>create_contact</button>
+
+            <button type='submit' value='company' name='option_create'>create_company</button>
         </form>
 
     </header>
 
     <?php 
 
-     if(isset($_GET['value'])){
+       if(isset($_GET['option_create']))
+       {
+            insertInvoice($_GET);
+       }
+
+
+       else{
+
+
+         if(isset($_GET['value'])){
  #### switch in for different button options in menu ###   
         switch($_GET['value']){
             case 'home':
@@ -70,6 +90,7 @@ $_SESSION['id'] = 2;
     
 
 }   
+}
      ?>
 </body>
 
