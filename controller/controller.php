@@ -35,14 +35,14 @@ function displayInvoicesDetails($id){
 	include 'view/invoicesDetailsView.php';
 }
 
-function insertInvoice($array){
+function insertInvoice($name){
 	$req_companie = queryCompanie();
-	if(isset($_POST['contact_select']))
-	{
-		$req_companie = queryCompanie();
-		include 'view/invoiceInsertView.php';
-	}
+	if(isset($_GET["companie_name"])){
+	$req_contact = queryContactName($name);
+	
+}
 	include 'view/invoiceInsertView.php';
+		
 	
 }
 ?>

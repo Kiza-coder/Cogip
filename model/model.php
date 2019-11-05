@@ -23,10 +23,7 @@ function queryCompaniesClients(){
 }
 function queryCompaniesProvider(){
     $db = dbConnect();
-    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name 
-                           FROM contacts AS cont 
-                           JOIN companies AS com 
-                           ON cont.id_companies = com.id");
+    $req = $db -> prepare("SELECT * FROM companies WHERE id_type_companies='2'ORDER BY name ASC");
     $req-> execute();
     return $req;
 }
@@ -119,6 +116,28 @@ function queryDetailsCompany($id){
     $req = $db -> prepare("SELECT companies.id AS comp_id , name, VAT, type_companies FROM companies INNER JOIN type ON companies.id_type_companies = type.id WHERE companies.id=$id");
     $req -> execute();
     return $req;
+}
+
+
+function queryContact(){
+$db = dbConnect();
+$req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
+FROM contacts AS cont
+JOIN companies AS com
+ON cont.id_companies = com.id");
+$req-> execute();
+return $req;
+}
+
+function queryContactName($name){
+$db = dbConnect();
+$req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
+FROM contacts AS cont
+JOIN companies AS com
+ON cont.id_companies = com.id
+WHERE com.name = '$name' ");
+$req-> execute();
+return $req;
 }
 
 
