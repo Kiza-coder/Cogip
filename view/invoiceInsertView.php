@@ -23,9 +23,8 @@
                         <?php foreach($companies as $key => $value)
 				{
 						$name_companies = $value['name'];
-						echo <<<EOF
-						<option value="$name_companies">$name_companies</option>
-						EOF; 
+						echo 
+                        '<option value='."$name_companies".'>'."$name_companies".'</option>';
 				} 
 			?>
 
@@ -37,16 +36,14 @@
                 <select name="contact_name">
                 <option value="">Please choose a contact</option>
         <?php
-        if(isset($_GET["companie_name"])){
+        if(isset($_GET['companie_name'])){
         $contacts = $req_contact -> fetchAll(PDO::FETCH_ASSOC);
                             foreach($contacts as $key => $value)
                 {
                         $name_contact = $value['first_name']." ". $value['lastname'];
-                        echo <<<EOF
-                        <option value="$name_contact">$name_contact</option>
-                        EOF; 
-                }
-                } 
+echo
+'<option value='."$name_contact".'>'."$name_contact".'</option>';
+}} 
         ?>
         </p>
             <input type="submit" value="Send">
