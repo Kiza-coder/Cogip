@@ -27,12 +27,9 @@ function queryCompaniesProvider(){
     $req-> execute();
     return $req;
 }
-### COMPANIES DETAIL ###
+// COMPANIES DETAIL //
 function queryDetailsCompany($id){
     $db = dbConnect();
-    // $req = $db -> prepare("SELECT * FROM companies INNER JOIN type ON companies.id_type_companies = type.id WHERE companies.id=$id");
-    // $req -> execute();
-    // return $req;
     $req = $db -> prepare("SELECT companies.id AS comp_id , name, VAT, type_companies 
                         FROM companies 
                         INNER JOIN type ON companies.id_type_companies = type.id 
@@ -52,10 +49,23 @@ function queryDetailsInvoiceForCompany($id){
     return $requestInv;
 }
 
-
-
-
-
+// insert company //
+function queryType(){
+    $db = dbConnect();
+    $req = $db -> prepare('SELECT * FROM type');
+    $req-> execute();
+    return $req;
+}
+function queryCompanyInsert(){
+    $companyname = $_GET['name_comp'];
+    $comptva = $_GET['tva_comp'];
+    $compphone = $_GET['phone_comp'];
+    $type = $_GET['type'];
+    echo $companyname;
+    echo $comptva;
+    echo $compphone;
+    echo $type; 
+}
 
 ##### CONTACTS #####
 function queryDetailsContact($id){
@@ -102,7 +112,17 @@ function queryContactDetailsInvoices($id){
     $requestp -> execute();
     return $requestp;
 }
-##### FUNCTIONS INVOICES PAGE #####
+function queryContactName($name){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
+    FROM contacts AS cont
+    JOIN companies AS com
+    ON cont.id_companies = com.id
+    WHERE com.name = '$name' ");
+    $req-> execute();
+    return $req;
+    }
+#####INVOICES#####
 
 function queryCompanie(){
     $db = dbConnect();
@@ -138,7 +158,7 @@ function queryInvoicesDetails($id){
         return $req;
 }
 
-function queryInvoiceInsert($array)
+function queryInvoiceInsert()
 {
         $date = date("m.d.y");
         $number = $_POST['number'];
@@ -149,45 +169,10 @@ function queryInvoiceInsert($array)
         $req->execute(array(
                 'new_date' => $date,
                 'new_number' => $number,
-                    'new_id_compagnie' => $id_companie,
+                'new_id_compagnie' => $id_companie,
                 'new_id_contact' => $id_contact
         ));
 
-}
-
-
-
-// recupere id du click
-function queryDetailsCompany($id){
-    $db = dbConnect();
-    // $req = $db -> prepare("SELECT * FROM companies INNER JOIN type ON companies.id_type_companies = type.id WHERE companies.id=$id");
-    // $req -> execute();
-    // return $req;
-    $req = $db -> prepare("SELECT companies.id AS comp_id , name, VAT, type_companies FROM companies INNER JOIN type ON companies.id_type_companies = type.id WHERE companies.id=$id");
-    $req -> execute();
-    return $req;
-}
-
-
-function queryContact(){
-$db = dbConnect();
-$req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
-FROM contacts AS cont
-JOIN companies AS com
-ON cont.id_companies = com.id");
-$req-> execute();
-return $req;
-}
-
-function queryContactName($name){
-$db = dbConnect();
-$req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
-FROM contacts AS cont
-JOIN companies AS com
-ON cont.id_companies = com.id
-WHERE com.name = '$name' ");
-$req-> execute();
-return $req;
 }
 
 

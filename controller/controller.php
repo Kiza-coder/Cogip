@@ -18,6 +18,10 @@ function displayCompanyDetail($id){
     $requestDetailClient = queryDetailsInvoiceForCompany($id);
     include 'view/clientDetailsView.php';
 }
+function insertCompany(){
+    $req_type_company = queryType();
+    include 'view/companiesInsertView.php';
+}
 
 ### functions contact ###
 function displayDetailsContact($id) {
@@ -39,7 +43,7 @@ function displayInvoicesDetails($id){
 	include 'view/invoicesDetailsView.php';
 }
 
-function insertInvoice($array){
+function insertInvoice(){
 	$req_companie = queryCompanie();
 	if(isset($array["companie_name"])){
 	$req_contact = queryContactName($array["companie_name"]);

@@ -34,22 +34,26 @@ $_SESSION['id'] = 2;
 
             <form action="" method="GET">  
              <button type='submit' value='invoice' name='option_create'>create_invoice</button>
-             
+             <button type='submit' value='company' name='option_create'>create_company</button>
+             <button type='submit' value='contact' name='option_create'>create_company</button>
              </form>      
 
     </header>
 
     <?php 
 
-       if(isset($_GET['option_create']))
-       {
-            insertInvoice($_GET);
-       }
-
-
-       else{
-
-
+       if(isset($_GET['option_create'])){
+            if ($_GET['option_create'] == 'invoice'){
+                insertInvoice();
+            }
+            if ($_GET['option_create'] == 'company'){
+                insertCompany();
+            }
+            if($_GET['option_create'] == 'contact'){
+                echo "create contact";
+            }
+            }
+            else{
          if(isset($_GET['value'])){
  #### switch in for different button options in menu ###   
         switch($_GET['value']){
