@@ -35,10 +35,10 @@ function displayInvoicesDetails($id){
 	include 'view/invoicesDetailsView.php';
 }
 
-function insertInvoice($name){
+function insertInvoice($array){
 	$req_companie = queryCompanie();
-	if(isset($_GET["companie_name"])){
-	$req_contact = queryContactName($name);
+	if(isset($array["companie_name"])){
+	$req_contact = queryContactName($array["companie_name"]);
 	
 }
 	include 'view/invoiceInsertView.php';
