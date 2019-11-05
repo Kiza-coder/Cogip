@@ -20,6 +20,9 @@ function displayCompanyDetail($id){
 }
 function insertCompany(){
     $req_type_company = queryType();
+    if(isset($_GET['send'])){
+        queryCompanyInsert();
+    }
     include 'view/companiesInsertView.php';
 }
 

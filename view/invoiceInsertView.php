@@ -46,5 +46,5 @@ echo
 }} 
         ?>
         </p>
-            <input type="submit" value="Send">
+            <input type="submit" name="send">
         </form>

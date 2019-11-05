@@ -60,11 +60,23 @@ function queryCompanyInsert(){
     $companyname = $_GET['name_comp'];
     $comptva = $_GET['tva_comp'];
     $compphone = $_GET['phone_comp'];
-    $type = $_GET['type'];
+    $type = $_GET['type_comp'];
+    $country = "belgique";
     echo $companyname;
     echo $comptva;
     echo $compphone;
-    echo $type; 
+    echo $type;
+    $db = dbConnect();
+    
+    $req = $db -> prepare("INSERT INTO `companies` (`name`, `country`, `VAT`, `id_type_companies`, `phone`) 
+    VALUES (:new_company, :country, :new_VAT, :id_type_comp, :new_phone)");
+    $req->execute(array(
+        'new_company' => $companyname,
+        'country' => $country,
+        'new_VAT' => $comptva,
+        'id_type_comp' => $type,
+        'new_phone'=> $compphone
+));
 }
 
 ##### CONTACTS #####

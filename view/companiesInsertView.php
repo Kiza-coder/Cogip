@@ -26,9 +26,10 @@ $createcompany = $req_type_company -> fetchAll(PDO::FETCH_ASSOC);
             <?php
                 foreach ($createcompany as $key => $value){
                     $type_companies = $value['type_companies'];
-                    echo '<option value='."$type_companies".'>'."$type_companies".'</option>';
+                    echo '<option value="'.$value['id'].'">'. $type_companies.'</option>';
                 }
             ?>
+        </select>
     </p>
-    <input type="submit" value="Send">
+    <input type="submit" name="send" value="submit">
 </form>
