@@ -41,12 +41,12 @@ function displayInvoicesDetails($id){
 
 function insertInvoice($array){
 	$req_companie = queryCompanie();
-	if(isset($_POST['contact_select']))
-	{
-		$req_companie = queryCompanie();
-		include 'view/invoiceInsertView.php';
-	}
+	if(isset($array["companie_name"])){
+	$req_contact = queryContactName($array["companie_name"]);
+	
+}
 	include 'view/invoiceInsertView.php';
+		
 	
 }
 ?>
