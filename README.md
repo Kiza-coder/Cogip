@@ -73,6 +73,8 @@ Day 4:
   - display elements on the detailled page
  - Merge all work to the development branch
  - Start work on Insert page invoices
+ 
+ 
 Day 5:
   - Insert pages invoices, companies, contacts
   - sanitize and validate in controller
