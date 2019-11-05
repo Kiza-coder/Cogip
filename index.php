@@ -34,6 +34,7 @@ $_SESSION['id'] = 2;
 
             <form action="" method="GET">  
              <button type='submit' value='invoice' name='option_create'>create_invoice</button>
+             
              </form>      
 
     </header>
@@ -42,7 +43,7 @@ $_SESSION['id'] = 2;
 
        if(isset($_GET['option_create']))
        {
-            insertInvoice($_GET['companie_name']);
+            insertInvoice($_GET);
        }
 
 
