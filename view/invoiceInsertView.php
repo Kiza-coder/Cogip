@@ -15,11 +15,11 @@
                 <input type="text" name="date">
             </p>
             <p>
-                
-                    <label for="companie_name">Commany name</label>
-                    <select name="companie_name" onChange="submit();">
-                        <option value="">Please choose company</option>
-                        <?php foreach($companies as $key => $value)
+
+                <label for="companie_name">Commany name</label>
+                <select name="companie_name" onChange="submit();">
+                    <option value="">Please choose company</option>
+                    <?php foreach($companies as $key => $value)
 				{
 						$name_companies = $value['name'];
 						echo <<<EOF
@@ -31,14 +31,15 @@
 				
 			?>
 
-                    </select>
-            
+                </select>
+
             </p>
             <p>
                 <label for="contact_name">Contact Name</label>
                 <select name="contact_name">
-                <option value="">Please choose a contact</option>
-  <?php
+                    <option value="">Please choose a contact</option>
+
+                    <?php
         if(isset($_GET["companie_name"])){
         echo "d";
        
@@ -47,7 +48,7 @@
          echo $_GET['companie_name'];
 }
 ?>
-                        <?php 
+                    <?php 
                                 
                             foreach($contacts as $key => $value)
                 {

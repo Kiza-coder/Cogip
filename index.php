@@ -30,11 +30,15 @@ $_SESSION['id'] = 2;
 
         </form>
 
-            
 
-            <form action="" method="GET">  
-             <button type='submit' value='invoice' name='option_create'>create_invoice</button>
-             </form>      
+
+        <form action="" method="GET">
+            <button type='submit' value='invoice' name='option_create'>create_invoice</button>
+
+            <button type='submit' value='contact' name='option_create'>create_contact</button>
+
+            <button type='submit' value='company' name='option_create'>create_company</button>
+        </form>
 
     </header>
 
