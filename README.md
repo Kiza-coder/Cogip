@@ -71,7 +71,8 @@ Day 4:
   - SQL queries
   - display elements on the global page
   - display elements on the detailled page
- - Merge all work to the development branch 
+ - Merge all work to the development branch
+ - Work on Insert page invoices
 Day 5:
 Day 6:
 Day 7:
