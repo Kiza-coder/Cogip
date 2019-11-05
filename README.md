@@ -76,9 +76,13 @@ Day 4:
  
  
 Day 5:
+  - DEBUGGING a lot before we could do :
   - Insert pages invoices, companies, contacts
-  - sanitize and validate in controller
 Day 6:
+  - merge all work to development branch
+  - sanitize
+  - dashboard
+  - login
 Day 7:
 Day 8:
 Day 9:
