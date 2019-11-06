@@ -27,9 +27,9 @@ Julien :
 Kiza :
 Laly :
 
-## Database relations drawing
+## Database relations
 
-![dbrelation](dbrelations.jpg)
+![dbrelations](VIVELACOGIP.jpg)
 
 ## The mission
 
