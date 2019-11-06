@@ -46,7 +46,14 @@ $_SESSION['id'] = 2;
 
        if(isset($_GET['option_create']))
        {
-            insertInvoice($_GET);
+           if(($_GET['option_create']) == "invoice"){
+               insertInvoice($_GET);
+           } else if(($_GET['option_create']) == "contact"){
+               insertContact(); 
+           } else if(($_GET['option_create']) == "company"){
+               
+           }
+            
        }
 
 

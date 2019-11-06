@@ -105,11 +105,11 @@ function queryInvoiceInsert($array)
         $id_companie = $_POST['id_companie'];
         $id_contact = $_POST['id_contact'];
         $db = dbConnect();
-        $req = $db -> prepare("INSERT INTO `invoices` (`date`, `number`, `id_companies`, `id_contacts`) VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
+        $req = $db -> prepare("INSERT INTO 'invoices' ('date', 'number', 'id_companies', 'id_contacts') VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
         $req->execute(array(
                 'new_date' => $date,
                 'new_number' => $number,
-                    'new_id_compagnie' => $id_companie,
+                'new_id_compagnie' => $id_companie,
                 'new_id_contact' => $id_contact
         ));
 
@@ -129,26 +129,39 @@ function queryDetailsCompany($id){
 }
 
 
-function queryContact(){
-$db = dbConnect();
-$req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
-FROM contacts AS cont
-JOIN companies AS com
-ON cont.id_companies = com.id");
-$req-> execute();
-return $req;
-}
 
 function queryContactName($name){
-$db = dbConnect();
-$req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
-FROM contacts AS cont
-JOIN companies AS com
-ON cont.id_companies = com.id
-WHERE com.name = '$name' ");
-$req-> execute();
-return $req;
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
+    FROM contacts AS cont
+    JOIN companies AS com
+    ON cont.id_companies = com.id
+    WHERE com.name = '$name' ");
+    $req-> execute();
+    return $req;
 }
+
+function queryContactInsert(){}
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $company = $_POST['company'];
+
+    $db = dbConnect();
+    $req = $db -> prepare("INSERT INTO 'contacts' ('first_name', 'last_name', 'email', 'phone', 'id_companies') 
+                           VALUES (:new_firstname, :new_lastname, :new_email, :new_phone, :new_id_company)");
+
+    $req = $db -> prepare("INSERT INTO `contacts` (`first_name`, `last_name`, `email`, `phone`, `id_companies`) 
+                           VALUES (:new_firstname, :new_lastname, :new_email, :new_phone, :new_id_company)");
+
+    $req -> execute(array(
+        'new_firstname' => $firstname,
+        'new_lastname' => $lastname,
+        'new_email' => $email,
+        'new_phone' => $phone,
+        'new_id_company' => $company    
+    ));
 
 
 ?>
