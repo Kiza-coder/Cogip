@@ -31,5 +31,5 @@ $createcompany = $req_type_company -> fetchAll(PDO::FETCH_ASSOC);
             ?>
         </select>
     </p>
-    <input type="submit" name="send" value="submit">
+    <input type="submit" name="send" value="send">
 </form>

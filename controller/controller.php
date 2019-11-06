@@ -60,7 +60,6 @@ function insertContact(){
     $req = queryCompanie();
     if(isset($_POST['send'])){
         queryContactInsert();
-        echo "ok";
     }
     include 'view/contactInsertView.php';
 
