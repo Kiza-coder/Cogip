@@ -183,7 +183,7 @@ function queryInvoiceInsert()
         $id_companie = $_GET['companie_name'];
         $id_contact = $_GET['contact_name'];
         $db = dbConnect();
-        $req = $db -> prepare("INSERT INTO 'invoices' ('date', 'number', 'id_companies', 'id_contacts') VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
+        $req = $db -> prepare("INSERT INTO `invoices` (`date`, `number`, `id_companies`, `id_contacts`) VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
         $req->execute(array(
                 'new_date' => $date,
                 'new_number' => $number,
@@ -192,10 +192,6 @@ function queryInvoiceInsert()
         ));
 
 }
-
-
-
-
 
 
 function queryContactId($id){
@@ -219,8 +215,6 @@ function queryContactInsert(){
     $company = $_POST['company'];
 
     $db = dbConnect();
-    $req = $db -> prepare("INSERT INTO 'contacts' ('first_name', 'last_name', 'email', 'phone', 'id_companies') 
-                           VALUES (:new_firstname, :new_lastname, :new_email, :new_phone, :new_id_company)");
 
     $req = $db -> prepare("INSERT INTO `contacts` (`first_name`, `last_name`, `email`, `phone`, `id_companies`) 
                            VALUES (:new_firstname, :new_lastname, :new_email, :new_phone, :new_id_company)");
