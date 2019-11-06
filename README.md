@@ -23,9 +23,9 @@ we should be able by the end of this challenge
 - allow access to certain page in regards to permissions
 
 Team members and inputs to the projects :
-Julien :
-Kiza :
-Laly :
+Julien : part contacts
+Kiza : part invoices
+Laly : part companies
 
 ## Database relations drawing
 
@@ -54,10 +54,36 @@ Day 2:
 - Creating the relations with the DB using foreign keys
 - Testing the database and exporting it to share it
 
+
 Day 3:
+- prepare the router
+- create the header common to all pages
+- working on displaying elements from db in the right pages
+- understanding how url work to change pages with links
+  - global page companies + detailled page if user clicks on link (Laly)
+  - global page contacts + detailled page if user clicks on link (Kiza)
+  - global page invoices + detailled page if user clicks on link (Julien)
+
+
+
 Day 4:
+- everyone working on their on parts (company, contacts, invoices)
+  - SQL queries
+  - display elements on the global page
+  - display elements on the detailled page
+ - Merge all work to the development branch
+ - Start work on Insert page invoices
+ 
+ 
 Day 5:
+  - DEBUGGING a lot before we could do :
+  - Insert pages invoices, companies, contacts
+  
 Day 6:
+  - Merge all work to development branch and test
+  - Sanitize inputs with Regex
+ 
+  
 Day 7:
 Day 8:
 Day 9:
