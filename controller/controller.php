@@ -1,45 +1,5 @@
 <?php 
 require 'model/model.php';
-$regEx = array(
-    "number_invoice" => "#^F{1}[0-9]{8}-{1}[0-9]{3}$#",
-    "date" => "#^[0-9]{4}-{1}[0-9]{2}-{1}[0-9]{2}$#",
-    "contact_name" => "#^[0-9]{1,4}$#",
-    "companie_name" => "#^[0-9]{1,4}$#",
-    "option_create" => "#^[a-z]{1,20}#"
-);
-
-function isEmptyForm()
-{
-	$isEmpty = true;
-	if(isset($_GET))
-	{
-		foreach($_GET as $key => $value)
-		{
-			
-			if(empty($_GET[$key]))
-			{
-				$isEmpty = false;
-			}
-		}
-	}
-	return $isEmpty;
-}
-
-
-
-function isValidateForm($regEx)
-{
-	$isValidate = true ;
-	foreach($_GET as $key => $value)
-	{
-		if(!preg_match($regEx[$key],$_GET[$key]))
-		{
-			echo "ok" ;
-			$isValidate = false;
-		}
-	}
-	return $isValidate;
-}
 
 
 
@@ -107,11 +67,14 @@ function insertInvoice(){
 		$req_contact = queryContactId($_GET["companie_name"]);
 
 	}	
-	
-	if(isset($_GET["send"])){
-	queryInvoiceInsert();
-}
 	include 'view/invoiceInsertView.php';
+	if(isset($_GET["send"])){
+		if(isEmptyForm()==true && isValidateForm($regEx)==true)
+		{
+			queryInvoiceInsert();
+		}
+	}
+	
 	
 }
 

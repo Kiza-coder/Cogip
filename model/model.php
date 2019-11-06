@@ -4,7 +4,7 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
+        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
     
         return $db;
     }
@@ -74,7 +74,7 @@ function queryCompanyInsert(){
     $db = dbConnect();
     
     $req = $db -> prepare("INSERT INTO `companies` (`name`, `country`, `VAT`, `id_type_companies`, `phone`) 
-    VALUES (:new_company, :country, :new_VAT, :id_type_comp, :new_phone)");
+    VALUES (:new_company,:country ,:new_VAT ,:id_type_comp ,:new_phone )");
     $req->execute(array(
         'new_company' => $companyname,
         'country' => $country,
