@@ -32,9 +32,9 @@
 				{
                      $id_companie =  $value["id"];
 						$name_companies = $value['name'];
-						echo <<<EOF
-						<option value="$id_companie">$name_companies</option>
-						EOF; 
+						echo '<option value="'.$id_companie.'">'.$name_companies.'</option>';
+						
+						 
 				} 
 			?>
 
@@ -52,9 +52,8 @@
                 {
                         $id_contact =  $value["cont_id"];
                         $name_contact = $value['first_name']." ". $value['last_name'];
-                        echo <<<EOF
-                        <option value="$id_contact">$name_contact</option>
-                        EOF; 
+                        echo '<option value="'.$id_contact.'">'.$name_contact.'</option>';
+                         
                 }
             } 
         ?>

@@ -52,7 +52,7 @@ $_SESSION['id'] = 2;
                 insertCompany();
             }
             if($_GET['option_create'] == 'contact'){
-                echo "create contact";
+                insertContact();
             }
             }
             else{

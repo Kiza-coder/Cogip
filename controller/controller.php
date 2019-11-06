@@ -48,6 +48,13 @@ function displayContact(){
     include 'view/contactsView.php';
 }
 
+function displayDetailsContact($id) {
+    $req = queryContactDetails($id);
+    $request = queryContactDetailsInvoices($id);
+    include 'view/contactsDetailsView.php';
+    $req = queryContact();
+
+}
 
 ### functions companies ###
 function displayCompaniesClientsandProviders(){
@@ -69,14 +76,6 @@ function insertCompany(){
     include 'view/companiesInsertView.php';
 }
 
-### functions contact ###
-function displayDetailsContact($id) {
-    $req = queryContactDetails($id);
-    $request = queryContactDetailsInvoices($id);
-    include 'view/contactsDetailsView.php';
-    $req = queryContact();
-
-}
 
 ### functions invoices ###
 function displayInvoices(){
@@ -84,10 +83,10 @@ function displayInvoices(){
 	include 'view/invoicesView.php';
 }
 
-    function displayCompanyDetail($id){
-    $req = queryDetailsCompany($id);
-    include 'view/clientDetailsView.php';
-}
+//     function displayCompanyDetail($id){
+//     $req = queryDetailsCompany($id);
+//     include 'view/clientDetailsView.php';
+// }
 
 
 function displayInvoicesDetails($id){
@@ -110,5 +109,15 @@ function insertInvoice(){
 	
 }
 
+
+function insertContact(){
+    $req = queryCompanie();
+    if(isset($_POST['send'])){
+        queryContactInsert();
+        echo "ok";
+    }
+    include 'view/contactInsertView.php';
+
+}
 
 ?>
