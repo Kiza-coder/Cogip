@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: database:3306
--- Generation Time: Nov 03, 2019 at 06:59 PM
+-- Generation Time: Nov 04, 2019 at 09:56 PM
 -- Server version: 10.4.2-MariaDB-1:10.4.2+maria~bionic
 -- PHP Version: 7.2.5
 
@@ -53,12 +53,10 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `name`, `country`, `VAT`, `id_type_companies`) VALUES
-(1, 'belcacomm', 'begleu', 'hjguygf87', 1),
-(2, 'kefk', 'Bresil', '56789okjb', 2),
-(3, 'haribo', 'Danemark', '234rt', 1),
-(4, 'Tefal', 'Pologne', '56789i', 2),
-(5, 'dfghj', 'dfghg', 'dfgyuj', 1),
-(6, 'hp', 'uk', '1234rty', 2);
+(1, 'Becode', 'Belgium', '12312312', 2),
+(2, 'Proximus', 'Belgium', '12312312', 2),
+(3, 'Base', 'Belgium', '12312312321', 1),
+(4, 'Orange', 'Belgium', '12312312', 1);
 
 -- --------------------------------------------------------
 
@@ -70,16 +68,21 @@ CREATE TABLE `contacts` (
   `id` int(11) NOT NULL,
   `first_name` varchar(60) CHARACTER SET utf8 NOT NULL,
   `last_name` varchar(60) CHARACTER SET utf8 NOT NULL,
-  `email` varchar(80) CHARACTER SET utf8 NOT NULL
+  `email` varchar(80) CHARACTER SET utf8 NOT NULL,
+  `phone` int(60) NOT NULL,
+  `id_companies` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contacts`
 --
 
-INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`) VALUES
-(1, 'ben', 'bou', 'benbou@jo.com'),
-(2, 'Ben', 'kok', 'lla@lo.dl');
+INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `phone`, `id_companies`) VALUES
+(2, 'julien', 'julien', 'julien@julien', 12345, 1),
+(3, 'laly', 'laly', 'laly@laly', 54321, 2),
+(4, 'kiza', 'kiza', 'kiza@kiza', 12543, 3),
+(5, 'julien2', 'julien2', 'julien2@julien2', 0, 4),
+(8, 'jdoe', 'djw', 'klajd@ko.dl', 123456, 3);
 
 -- --------------------------------------------------------
 
@@ -112,7 +115,12 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `date`, `number`, `id_companies`, `id_contacts`) VALUES
-(1, '2019-10-29', '23456', 1, 1);
+(2, '2019-11-04', '226.432.12', 1, 2),
+(3, '2019-11-02', '123.321.12', 2, 3),
+(4, '2019-11-04', '456.432.12', 3, 4),
+(5, '2019-11-02', '827.321.12', 4, 5),
+(6, '2019-11-13', '123.321.222', 1, 2),
+(7, '2019-11-09', '321.222.123', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -154,7 +162,8 @@ ALTER TABLE `companies`
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_contacts_companies` (`id_companies`) USING BTREE;
 
 --
 -- Indexes for table `contacts_companies`
@@ -192,13 +201,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `contacts_companies`
@@ -210,7 +219,7 @@ ALTER TABLE `contacts_companies`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `type`
@@ -227,6 +236,12 @@ ALTER TABLE `type`
 --
 ALTER TABLE `companies`
   ADD CONSTRAINT `FK_compagny_type` FOREIGN KEY (`id_type_companies`) REFERENCES `type` (`id`);
+
+--
+-- Constraints for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD CONSTRAINT `fk_companies` FOREIGN KEY (`id_companies`) REFERENCES `companies` (`id`);
 
 --
 -- Constraints for table `contacts_companies`

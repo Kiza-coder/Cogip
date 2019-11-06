@@ -55,8 +55,21 @@ function displayCompaniesClientsandProviders(){
     $requestp = queryCompaniesProvider();
     include 'view/companiesView.php';
 }
+function displayCompanyDetail($id){
+    $req = queryDetailsCompany($id);
+    $request = queryDetailsContact($id);
+    $requestDetailClient = queryDetailsInvoiceForCompany($id);
+    include 'view/clientDetailsView.php';
+}
+function insertCompany(){
+    $req_type_company = queryType();
+    if(isset($_GET['send'])){
+        queryCompanyInsert();
+    }
+    include 'view/companiesInsertView.php';
+}
 
-
+### functions contact ###
 function displayDetailsContact($id) {
     $req = queryContactDetails($id);
     $request = queryContactDetailsInvoices($id);
@@ -65,10 +78,7 @@ function displayDetailsContact($id) {
 
 }
 
-
-
-
-##function invoices page##
+### functions invoices ###
 function displayInvoices(){
 	$req = queryInvoices();
 	include 'view/invoicesView.php';

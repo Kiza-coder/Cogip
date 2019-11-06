@@ -44,15 +44,18 @@ $_SESSION['id'] = 2;
 
     <?php 
 
-       if(isset($_GET['option_create']))
-       {
-            insertInvoice();
-       }
-
-
-       else{
-
-
+       if(isset($_GET['option_create'])){
+            if ($_GET['option_create'] == 'invoice'){
+                insertInvoice();
+            }
+            if ($_GET['option_create'] == 'company'){
+                insertCompany();
+            }
+            if($_GET['option_create'] == 'contact'){
+                echo "create contact";
+            }
+            }
+            else{
          if(isset($_GET['value'])){
  #### switch in for different button options in menu ###   
         switch($_GET['value']){
@@ -70,7 +73,7 @@ $_SESSION['id'] = 2;
             case 'companies':
             // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
             if(isset($_GET['id'])){
-                displayCompanyDetail($_GET['id']);
+            displayCompanyDetail($_GET['id']);
             } else {
             displayCompaniesClientsandProviders();
             }
@@ -78,7 +81,6 @@ $_SESSION['id'] = 2;
             case 'contacts':
                 if(isset($_GET['id'])){
                     displayDetailsContact($_GET['id']);
-
                 } else {
                     displayContact();
                 }
