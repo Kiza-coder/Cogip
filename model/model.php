@@ -4,7 +4,8 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
+        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
+    
         return $db;
     }
 
@@ -17,6 +18,7 @@ function dbConnect()
 // functions which prepares the query, executes the query and copies the result
 
 
+// functions which prepares the query, executes the query
 function queryCompaniesClients(){
     $db = dbConnect();
     $req = $db -> prepare("SELECT * FROM companies WHERE id_type_companies='1'ORDER BY name ASC");
@@ -27,6 +29,79 @@ function queryCompaniesClients(){
 function queryCompaniesProvider(){
     $db = dbConnect();
     $req = $db -> prepare("SELECT * FROM companies WHERE id_type_companies='2'ORDER BY name ASC");
+    $req-> execute();
+    return $req;
+}
+// COMPANIES DETAIL //
+function queryDetailsCompany($id){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT companies.id AS comp_id , name, VAT, type_companies 
+                        FROM companies 
+                        INNER JOIN type ON companies.id_type_companies = type.id 
+                        WHERE companies.id=$id");
+    $req -> execute();
+    return $req;
+}
+
+function queryDetailsInvoiceForCompany($id){
+    $db = dbConnect();
+    $requestInv = $db -> prepare("SELECT invoices.id AS inv_id, number AS n, date AS d, email AS e 
+                                FROM invoices
+                                INNER JOIN companies ON invoices.id_companies = companies.id
+                                INNER JOIN contacts ON invoices.id_contacts = contacts.id
+                                WHERE companies.id=$id");
+    $requestInv -> execute();
+    return $requestInv;
+}
+
+// insert company //
+function queryType(){
+    $db = dbConnect();
+    $req = $db -> prepare('SELECT * FROM type');
+    $req-> execute();
+    return $req;
+}
+function queryCompanyInsert(){
+    $companyname = $_GET['name_comp'];
+    $comptva = $_GET['tva_comp'];
+    $compphone = $_GET['phone_comp'];
+    $type = $_GET['type_comp'];
+    $country = "belgique";
+    echo $companyname;
+    echo $comptva;
+    echo $compphone;
+    echo $type;
+    $db = dbConnect();
+    
+    $req = $db -> prepare("INSERT INTO `companies` (`name`, `country`, `VAT`, `id_type_companies`, `phone`) 
+    VALUES (:new_company, :country, :new_VAT, :id_type_comp, :new_phone)");
+    $req->execute(array(
+        'new_company' => $companyname,
+        'country' => $country,
+        'new_VAT' => $comptva,
+        'id_type_comp' => $type,
+        'new_phone'=> $compphone
+));
+}
+
+##### CONTACTS #####
+function queryDetailsContact($id){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT contacts.id AS cont_id, first_name, last_name, phone, email 
+                        FROM contacts 
+                        INNER JOIN companies 
+                        ON contacts.id_companies = companies.id
+                        WHERE companies.id=$id");
+    $req -> execute();
+    return $req;
+}
+
+function queryContact(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.id AS com_id, com.name 
+                           FROM contacts AS cont 
+                           JOIN companies AS com 
+                           ON cont.id_companies = com.id");
     $req-> execute();
     return $req;
 }
@@ -43,7 +118,6 @@ function queryContactDetails($id) {
     $req -> execute();
     return $req;
 }
-
 function queryContactDetailsInvoices($id){
     $db = dbConnect();
     $req = $db -> prepare ("SELECT cont.id AS cont_id, inv.id AS inv_id, number, date FROM invoices AS inv 
@@ -56,6 +130,17 @@ function queryContactDetailsInvoices($id){
     $requestp -> execute();
     return $requestp;
 }
+function queryContactName($name){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
+    FROM contacts AS cont
+    JOIN companies AS com
+    ON cont.id_companies = com.id
+    WHERE com.name = '$name' ");
+    $req-> execute();
+    return $req;
+    }
+#####INVOICES#####
 
 function queryCompanie(){
     $db = dbConnect();
@@ -108,27 +193,6 @@ function queryInvoiceInsert()
 
 }
 
-// recupere id du click
-function queryDetailsCompany($id){
-    $db = dbConnect();
-    // $req = $db -> prepare("SELECT * FROM companies INNER JOIN type ON companies.id_type_companies = type.id WHERE companies.id=$id");
-    // $req -> execute();
-    // return $req;
-    $req = $db -> prepare("SELECT companies.id AS comp_id , name, VAT, type_companies FROM companies INNER JOIN type ON companies.id_type_companies = type.id WHERE companies.id=$id");
-    $req -> execute();
-    return $req;
-}
-
-function queryContact(){
-$db = dbConnect();
-$req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
-FROM contacts AS cont
-JOIN companies AS com
-ON cont.id_companies = com.id");
-$req-> execute();
-return $req;
-}
-
 
 function queryContactId($id){
 $db = dbConnect();
@@ -141,5 +205,27 @@ $req-> execute();
 return $req;
 }
 
+
+
+function queryContactInsert(){
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $company = $_POST['company'];
+
+    $db = dbConnect();
+
+    $req = $db -> prepare("INSERT INTO `contacts` (`first_name`, `last_name`, `email`, `phone`, `id_companies`) 
+                           VALUES (:new_firstname, :new_lastname, :new_email, :new_phone, :new_id_company)");
+
+    $req -> execute(array(
+        'new_firstname' => $firstname,
+        'new_lastname' => $lastname,
+        'new_email' => $email,
+        'new_phone' => $phone,
+        'new_id_company' => $company    
+    ));
+}
 
 ?>

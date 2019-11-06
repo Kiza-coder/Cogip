@@ -1,5 +1,5 @@
 <h3>CREATE INVOICES<h3>
-    <?php
+        <?php
     $regEx = array(
     "number_invoice" => "#^F{1}[0-9]{8}-{1}[0-9]{3}$#",
     "date" => "#^[0-9]{4}-{1}[0-9]{2}-{1}[0-9]{2}$#",
@@ -13,7 +13,7 @@
     
 
 	?>
-    <form action="" method="get">
+        <form action="" method="get">
 
             <input type='text' name="option_create" value='invoice'>
             <p>
@@ -27,37 +27,36 @@
             <p>
                 <label for="companie_name">Commany name</label>
                 <select name="companie_name" value="" onChange="submit();">
-                        <option value="<?=$_GET['companie_name'] ?? ""?>">Please choose company</option>
-                        <?php foreach($companies as $key => $value)
+                    <option value="<?=$_GET['companie_name'] ?? ""?>">Please choose company</option>
+                    <?php foreach($companies as $key => $value)
 				{
                      $id_companie =  $value["id"];
 						$name_companies = $value['name'];
-						echo <<<EOF
-						<option value="$id_companie">$name_companies</option>
-						EOF; 
+						echo '<option value="'.$id_companie.'">'.$name_companies.'</option>';
+						
+						 
 				} 
 			?>
 
-                 </select>
+                </select>
             </p>
 
             <p>
                 <label for="contact_name">Contact Name</label>
                 <select name="contact_name">
-                <option value="">Please choose a contact</option>
-        <?php
+                    <option value="">Please choose a contact</option>
+                    <?php
         if(isset($_GET["companie_name"])){
         $contacts = $req_contact -> fetchAll(PDO::FETCH_ASSOC);
                             foreach($contacts as $key => $value)
                 {
                         $id_contact =  $value["cont_id"];
                         $name_contact = $value['first_name']." ". $value['last_name'];
-                        echo <<<EOF
-                        <option value="$id_contact">$name_contact</option>
-                        EOF; 
+                        echo '<option value="'.$id_contact.'">'.$name_contact.'</option>';
+                         
                 }
             } 
         ?>
-        </p>
+            </p>
             <input type="submit" value="send" name="send">
         </form>
