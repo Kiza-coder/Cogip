@@ -26,6 +26,7 @@ function isEmptyForm()
 }
 
 
+
 function isValidateForm($regEx)
 {
 	$isValidate = true ;
