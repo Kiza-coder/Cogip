@@ -46,7 +46,7 @@ $_SESSION['id'] = 2;
 
        if(isset($_GET['option_create']))
        {
-            insertInvoice($_GET);
+            insertInvoice();
        }
 
 
