@@ -8,19 +8,23 @@ function dbConnect()
     
         return $db;
     }
-    catch(Exeption $e){
-        die('Erreur: '.$e->getMessage());
 
+    catch(Exeption $e)
+    {
+        die('Erreur: '.$e->getMessage());
     }
 }
 ####### FUNCTIONS FOR COMPANIES ########
 // functions which prepares the query, executes the query and copies the result
+
+
 function queryCompaniesClients(){
     $db = dbConnect();
     $req = $db -> prepare("SELECT * FROM companies WHERE id_type_companies='1'ORDER BY name ASC");
     $req -> execute();
     return $req;
 }
+
 function queryCompaniesProvider(){
     $db = dbConnect();
     $req = $db -> prepare("SELECT * FROM companies WHERE id_type_companies='2'ORDER BY name ASC");
@@ -88,24 +92,22 @@ function queryInvoicesDetails($id){
         return $req;
 }
 
-function queryInvoiceInsert($array)
+function queryInvoiceInsert()
 {
         $date = date("m.d.y");
-        $number = $_POST['number'];
-        $id_companie = $_POST['id_companie'];
-        $id_contact = $_POST['id_contact'];
+        $number = $_GET['number_invoice'];
+        $id_companie = $_GET['companie_name'];
+        $id_contact = $_GET['contact_name'];
         $db = dbConnect();
         $req = $db -> prepare("INSERT INTO `invoices` (`date`, `number`, `id_companies`, `id_contacts`) VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
         $req->execute(array(
                 'new_date' => $date,
                 'new_number' => $number,
-                    'new_id_compagnie' => $id_companie,
+                'new_id_compagnie' => $id_companie,
                 'new_id_contact' => $id_contact
         ));
 
 }
-
-
 
 // recupere id du click
 function queryDetailsCompany($id){
@@ -118,7 +120,6 @@ function queryDetailsCompany($id){
     return $req;
 }
 
-
 function queryContact(){
 $db = dbConnect();
 $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
@@ -129,13 +130,14 @@ $req-> execute();
 return $req;
 }
 
-function queryContactName($name){
+
+function queryContactId($id){
 $db = dbConnect();
 $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
 FROM contacts AS cont
 JOIN companies AS com
 ON cont.id_companies = com.id
-WHERE com.name = '$name' ");
+WHERE com.id = '$id' ");
 $req-> execute();
 return $req;
 }
