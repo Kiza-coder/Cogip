@@ -33,7 +33,7 @@ EOF;
 
 
 echo <<<EOF
-<div class="card shadow mt-5">
+<div class="card shadow mt-5 mb-5">
 <div class="card-header h1 text-center">$firstname $lastname</div>
 <div class="card-body text-center mt-4">
 <div class="card ml-auto mr-auto shadow-sm">
