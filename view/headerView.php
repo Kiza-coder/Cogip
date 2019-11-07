@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-light border-bottom">
         <img src="assets/img/Cogip_Logo.svg" alt="logo-cogip" class="img-fluid navbar-Brand">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="?value=home" class="nav-link">Home</a></li>

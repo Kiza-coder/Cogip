@@ -11,14 +11,14 @@ function displayDetailsContact($id) {
 	$req = queryContactDetails($id);
 	$request = queryContactDetailsInvoices($id);
 	$reqCompany = queryCompanie();
-	$req = queryContact();
+	$requestContact = queryContact();
 	
 
 		if(isset($_POST['edit'])){
 			if(isEmptyForm()==true && isValidateForm($regEx)==true)
 			{
 				queryContactEdit($id);
-				$req = queryContact();
+				$requestContact = queryContact();
 			}
 		}
 		include 'view/contactsDetailsView.php';

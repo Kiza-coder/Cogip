@@ -10,10 +10,10 @@
         <table class="table">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">Name</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Company</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Company</th>
                 </tr>
             </thead>
             <tbody>
