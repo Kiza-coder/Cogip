@@ -113,7 +113,7 @@ function queryDetailsContact($id){
 
 function queryContact(){
     $db = dbConnect();
-    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.id AS com_id, com.name 
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.id AS com_id, com.name AS name
                            FROM contacts AS cont 
                            JOIN companies AS com 
                            ON cont.id_companies = com.id");
@@ -121,18 +121,21 @@ function queryContact(){
     return $req;
 }
 
+
 function queryContactDetails($id) {
     $db = dbConnect();
     $req = $db -> prepare ("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.id AS com_id, com.name, inv.id AS inv_id, inv.date, inv.number 
-                            FROM invoices AS inv
+                            FROM contacts AS cont
                             JOIN companies AS com
+                            ON cont.id_companies = com.id
+                            JOIN invoices AS inv
                             ON inv.id_companies = com.id
-                            JOIN contacts AS cont
-                            ON inv.id_contacts = cont.id
                             WHERE cont.id = $id");
     $req -> execute();
     return $req;
 }
+
+
 function queryContactDetailsInvoices($id){
     $db = dbConnect();
     $req = $db -> prepare ("SELECT cont.id AS cont_id, inv.id AS inv_id, number, date FROM invoices AS inv 
@@ -246,14 +249,14 @@ function queryContactInsert(){
 function queryContactEdit($id) {
     $db = dbConnect();
 
-    $req = $db -> prepare("UPDATE `contacts` SET `first_name` = :new_firstname, `last_name` = :new_lastname, `email` = :new_email , `phone` = :new_phone
+    $req = $db -> prepare("UPDATE `contacts` SET `first_name` = :new_firstname, `last_name` = :new_lastname, `email` = :new_email , `phone` = :new_phone, `id_companies` = :new_id_companies
                            WHERE contacts.id = $id");
-    var_dump($req);
     $req -> execute(array(
         'new_firstname' => $_POST['firstname'],
         'new_lastname' => $_POST['lastname'],
         'new_email' => $_POST['email'],
-        'new_phone' => $_POST['phone']
+        'new_phone' => $_POST['phone'],
+        'new_id_companies' => $_POST['company']
     ));
 }
 

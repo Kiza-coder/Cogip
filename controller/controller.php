@@ -11,14 +11,12 @@ function displayDetailsContact($id) {
 	$req = queryContactDetails($id);
 	$request = queryContactDetailsInvoices($id);
 	$reqCompany = queryCompanie();
-	$requestContact = queryContact();
-	
 
 		if(isset($_POST['edit'])){
 			if(isEmptyForm()==true && isValidateForm($regEx)==true)
 			{
 				queryContactEdit($id);
-				$requestContact = queryContact();
+				$req = queryContactDetails($id);
 			}
 		}
 		include 'view/contactsDetailsView.php';
@@ -27,9 +25,8 @@ function displayDetailsContact($id) {
 }
 
 function insertContact(){
-    $req = queryCompanie();
-    
-    include 'view/contactInsertView.php';
+	require "assets/includes/sanitize.php";
+	$req = queryCompanie();
     
     if(isset($_POST["send"])){
 		if(isEmptyForm()==true && isValidateForm($regEx)==true)
@@ -37,6 +34,7 @@ function insertContact(){
 			queryContactInsert();
 		}
 	}
+	include 'view/contactInsertView.php';
 }
 
 ### functions companies ###

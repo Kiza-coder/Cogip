@@ -1,6 +1,6 @@
 <header>
-    <nav class="navbar navbar-expand navbar-light bg-light border-bottom">
-        <img src="assets/img/Cogip_Logo.svg" alt="logo-cogip" class="img-fluid navbar-Brand">
+    <nav class="navbar navbar-expand navbar-light bg-light border-bottom fixed-top mb-5">
+        <img src="assets/img/CogipLogo.png" alt="logo-cogip" class="img-fluid navbar-Brand">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="?value=home" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="?value=invoices" class="nav-link">Invoices</a></li>
@@ -18,6 +18,8 @@
                                 <a class="dropdown-item nav-item-link" href="?option_create=contact">New contact</a>
                                 <a class="dropdown-item nav-item-link" href="?option_create=invoice">New invoice</a>
                                 <a class="dropdown-item nav-item-link" href="?option_create=company">New company</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Log Out</a>
                             </div>
                         </li>';
                 

@@ -22,7 +22,7 @@ $_SESSION['rights'] = 1;
 
 </head>
 
-<body class="bg-light">
+<body class="bg-light pt-5">
     <?php 
         require "view/headerView.php";
     ?>
@@ -95,9 +95,12 @@ $_SESSION['rights'] = 1;
 }
 }   
             }
-    require "view/footerView.php";
+
      ?>
     </div>
+    <?php 
+        require "view/footerView.php";
+        ?>
 </body>
 
 </html>

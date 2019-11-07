@@ -1,1 +1,1 @@
-<h6 class="text-center fixed-bottom">COPYRIGHT FOOTER</h6>
+<h6 class="text-center bg-ligth border-top">COPYRIGHT FOOTER</h6>
