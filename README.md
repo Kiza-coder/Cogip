@@ -6,23 +6,23 @@ This exercise makes us consolidate our knowledge in PHP, databases, SQL queries 
 
 The project will be evaluated on :
 
-- use of different URL parameters and filename [x] 
-- use of sanitization to avoid SQL injections [x] 
-- validation of data so that full-admin doesn’t input whatever [x] 
-- construction of a functional relational database [x] 
-- use of correct joins in SQL [x] 
-- use of aliases in SQL requests [x] 
-- implementation of a CRUD to read, add, modify and delete data [] 
+- use of different URL parameters and filename [checkbox:checked] 
+- use of sanitization to avoid SQL injections [checkbox:checked] 
+- validation of data so that full-admin doesn’t input whatever [checkbox:checked]
+- construction of a functional relational database [checkbox:checked] 
+- use of correct joins in SQL [checkbox:checked] 
+- use of aliases in SQL requests [checkbox:checked]
+- implementation of a CRUD to read, add, modify and delete data [checkbox:unchecked] 
 
 we should be able by the end of this challenge
 
-- crypt password in a database
-- use an MVC structure [x] 
-- use a router [x] 
-- setup a session
-- allow access to certain page in regards to permissions [] 
+- crypt password in a database [checkbox:unchecked]
+- use an MVC structure [checkbox:checked] 
+- use a router [checkbox:checked]
+- setup a session [checkbox:unchecked]
+- allow access to certain page in regards to permissions [checkbox:unchecked]
 
-Team members and inputs to the projects :
+Team members and inputs to the projects 
 Julien :
 Kiza :
 Laly :
@@ -99,7 +99,9 @@ Day 10:
 - HTML, CSS
 - PHP
 - PHP myadmin
-- SQL
+- SQL 
+- Docker
+- Figma
 
 ## Progression
 
