@@ -6,21 +6,21 @@ This exercise makes us consolidate our knowledge in PHP, databases, SQL queries 
 
 The project will be evaluated on :
 
-- use of different URL parameters and filename
-- use of sanitization to avoid SQL injections
-- validation of data so that full-admin doesn’t input whatever
-- construction of a functional relational database
-- use of correct joins in SQL
-- use of aliases in SQL requests
-- implementation of a CRUD to read, add, modify and delete data
+- use of different URL parameters and filename [x] 
+- use of sanitization to avoid SQL injections [x] 
+- validation of data so that full-admin doesn’t input whatever [x] 
+- construction of a functional relational database [x] 
+- use of correct joins in SQL [x] 
+- use of aliases in SQL requests [x] 
+- implementation of a CRUD to read, add, modify and delete data [] 
 
 we should be able by the end of this challenge
 
 - crypt password in a database
-- use an MVC structure
-- use a router
+- use an MVC structure [x] 
+- use a router [x] 
 - setup a session
-- allow access to certain page in regards to permissions
+- allow access to certain page in regards to permissions [] 
 
 Team members and inputs to the projects :
 Julien :
@@ -61,11 +61,33 @@ Day 3:
 - prepare the router
 
 Day 4:
+- everyone working on their on parts (company, contacts, invoices)
+    - SQL queries
+    - display elements on the global page
+    - display elements on the detailled page
+- Merge all work to the development branch (Julien)
+- Work on the CRUD (Create and Read) 
+    - Start work on Insert page invoices (Kiza)
+
 Day 5:
+- DEBUGGING a lot before we could do :
+- Insert pages invoices, companies, contacts
+
 Day 6:
+- Merge all work to development branch and test
+- Sanitize inputs with Regex
+- add Access and User tables to DB
+
 Day 7:
+- Login page + add super-user to db
+- Work on the CRUD (Update) Contact Page (Julien)
+- Detail for providers and clients page for company part (Laly)
+- Start Welcome Page (Laly)
+
 Day 8:
+
 Day 9:
+FREESTYLE ON 
 Day 10:
 
 ## Content

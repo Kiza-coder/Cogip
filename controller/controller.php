@@ -42,7 +42,7 @@ function displayCompanyDetail($id){
     $request = queryDetailsContact($id);
 	$requestDetailClient = queryDetailsInvoiceForCompany($id);
 	$requestDetailContact = queryDetailsContactForCompany($id);
-    include 'view/clientDetailsView.php';
+    include 'view/companyDetailsView.php';
 }
 
 function displayClientsAll(){
