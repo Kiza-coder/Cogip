@@ -40,9 +40,7 @@ $_SESSION['id'] = 2;
 
             <button type='submit' value='company' name='option_create'>create_company</button>
         </form>
-
     </header>
-
     <?php 
 
        if(isset($_GET['option_create'])){
@@ -75,9 +73,15 @@ $_SESSION['id'] = 2;
             // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
             if(isset($_GET['id'])){
             displayCompanyDetail($_GET['id']);
-            } else {
+            } else if (isset($_GET['id_type'])){
+                if($_GET['id_type'] == 1){
+                displayClientsAll();
+                } else {
+                    displayProvidersAll();
+                }
+        } else {
             displayCompaniesClientsandProviders();
-            }
+        }
             break;
             case 'contacts':
                 if(isset($_GET['id'])){
@@ -90,8 +94,6 @@ $_SESSION['id'] = 2;
                 include 'view/connexionView.php';
                 break;
         }
-    
-
 }   
 }
      ?>
