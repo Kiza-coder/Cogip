@@ -6,9 +6,9 @@ This exercise makes us consolidate our knowledge in PHP, databases, SQL queries 
 
 The project will be evaluated on :
 
-- use of different URL parameters and filename  ok 
-- use of sanitization to avoid SQL injections ok
-- validation of data so that full-admin doesn’t input whatever ok
+- use of different URL parameters and filename  [X]  
+- use of sanitization to avoid SQL injections [X] 
+- validation of data so that full-admin doesn’t input whatever [ ]
 - construction of a functional relational database ok 
 - use of correct joins in SQL ok 
 - use of aliases in SQL requests \[x] # '[x]'
