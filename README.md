@@ -79,7 +79,9 @@ Day 6:
 - add Access and User tables to DB
 
 Day 7:
-- Login page + add super-user to db
+- Login page + add super-user to db (Kiza)
+- Router organisation : url pages for buttons header(Kiza)
+- Header and footer creation (Julien)
 - Work on the CRUD (Update) Contact Page (Julien)
 - Detail for providers and clients page for company part (Laly)
 - Start Welcome Page (Laly)
