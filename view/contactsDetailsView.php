@@ -1,4 +1,4 @@
-<?php
+    <?php
     $contactDetails = $req -> fetch(PDO::FETCH_ASSOC);
     $firstname = $contactDetails['first_name'];
     $lastname = $contactDetails['last_name'];

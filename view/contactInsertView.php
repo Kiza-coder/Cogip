@@ -5,7 +5,7 @@
 
 <h1>Ajouter nouveau contact :</h1>
 
-<form action="" method="post">
+<form action="#" method="post">
     <input type='text' name="option_create" value='contact'>
     <p>
         <label for="lastname">Nom</label>

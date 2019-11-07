@@ -1,8 +1,9 @@
 <?php
 session_start();
-require 'controller/controller.php';
 
-$_SESSION['id'] = 2;
+require 'controller/controller.php';
+$_SESSION["id"] = 2;
+$_SESSION['rights'] = 3;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,12 +22,18 @@ $_SESSION['id'] = 2;
             <button type='submit' value='invoices' name='value'>invoices</button>
             <button type='submit' value='companies' name='value'>companies</button>
             <button type='submit' value='contacts' name='value'>contacts</button>
+            <button type="submit" value='login' name='value'>Login</button>
             <?php if ($_SESSION['id'] == 3){
                 echo "<button type='submit' value='connexion' name='value'>connexion</button>";
             } else {
                 echo "<button type='submit' value='login' name='value'>Admin</button>";
             }
+            if($_SESSION["rights"]==3)
+            {
+                echo "<button type='submit' value='user' name='value'>UserLIst</button>";
+            }
             ?>
+
 
 
         </form>
@@ -44,7 +51,6 @@ $_SESSION['id'] = 2;
     </header>
 
     <?php 
-
        if(isset($_GET['option_create'])){
             if ($_GET['option_create'] == 'invoice'){
                 insertInvoice();
@@ -89,9 +95,19 @@ $_SESSION['id'] = 2;
             case 'connexion':
                 include 'view/connexionView.php';
                 break;
-        }
-    
-
+            case 'login':
+                login();
+                break;
+        
+            case 'user':
+                if(isset($_GET['id'])){
+                    displayUserDetails($_GET['id']);
+                }
+                else{
+                displayUser();
+            }
+                break;
+}
 }   
 }
      ?>
