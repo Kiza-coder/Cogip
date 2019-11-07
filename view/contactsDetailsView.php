@@ -1,5 +1,7 @@
 <?php
+
     $contactDetails = $req -> fetch(PDO::FETCH_ASSOC);
+    $url = $contactDetails['cont_id'];
     $firstname = $contactDetails['first_name'];
     $lastname = $contactDetails['last_name'];
     $name = $contactDetails['name'];
@@ -7,18 +9,44 @@
     $phone = $contactDetails['phone'];
     $number = $contactDetails['number'];
     $date = $contactDetails['date'];
+    $value = 'contacts';
 ?>
 
-<h1>Contact : <?php echo $firstname . " " . $lastname ?></h1>
+<h1>Contact : <?= $firstname . " " . $lastname ?></h1>
 
-<h4>Contact : <?php echo $firstname . " " . $lastname ?></h4>
+<?php 
+
+if(isset($_GET['option_edit'])){
+echo <<<EOF
+<form action="?id=$url&value=$value" method="post">
+<h4>Nom: <input type="text" name="lastname" value="$lastname"></h4>
 <p></p>
-<h4>Société : <?php echo $name ?></h4>
+<h4>Prénom : <input type="text" name="firstname" value="$firstname"></h4>
 <p></p>
-<h4>Email : <?php echo $email ?></h4>
+<h4>Société : <input type="text" name="company" value="$name"></h4>
 <p></p>
-<h4>Phone : <?php echo $phone ?></h4>
+<h4>Email : <input type="text" name="email" value="$email"></h4>
 <p></p>
+<h4>Phone : <input type="text" name="phone" value="$phone"></h4>    
+<p></p>
+<button type="submit" name="edit" value="edit">Submit</button>
+</form>
+EOF;
+} else {
+echo <<<EOF
+<a href="?id=$url&value=$value&option_edit=1">Edit</a>
+<h4>Contact : $firstname $lastname</h4>
+<p></p>
+<h4>Société : $name</h4>
+<p></p>
+<h4>Email : $email</h4>
+<p></p>
+<h4>Phone : $phone</h4>
+<p></p>
+EOF;
+}
+?>
+
 
 <h2>Contact pour les factures :</h2>
 

@@ -8,7 +8,7 @@ require "assets/includes/sanitize.php";
 
 ?>
 <form action="" method="post">
-    <input type='text' name="option_create" value='company'>
+    <input type='hidden' name="option_create" value='company'>
     <p>
         <label for="name_comp">Company Name</label>
         <input type="text" name="name_comp">

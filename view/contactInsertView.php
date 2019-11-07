@@ -6,7 +6,7 @@
 <h1>Ajouter nouveau contact :</h1>
 
 <form action="" method="post">
-    <input type='text' name="option_create" value='contact'>
+    <input type='hidden' name="option_create" value='contact'>
     <p>
         <label for="lastname">Nom</label>
         <input type="text" name="lastname">
@@ -29,7 +29,7 @@
 
     <p>
         <label for="company">Société</label>
-        <select name="company">
+        <select name="company" value="<?=$_POST['company'] ?? "" ?>">
             <option value="">Please choose company</option>
             <?php 
                 foreach($req_companies as $key => $value){

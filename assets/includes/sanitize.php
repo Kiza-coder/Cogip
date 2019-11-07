@@ -14,7 +14,8 @@ $regEx = array(
     "phone_comp" => "#^[0-9]{9,10}$#",
     "name_comp" => "#^[a-zA-Z0-9]{1}#",
     "tva_comp" => "#^B{1}E{1}0{1}[0-9]{9}$#",
-    "send" => "#send#"	
+	"send" => "#send#",
+	"edit" => "#edit#"	
 );
 function isEmptyForm()
 {
@@ -37,6 +38,7 @@ function isValidateForm($regEx)
 	$isValidate = true ;
 	foreach($_POST as $key => $value)
 	{
+		var_dump(preg_match($regEx[$key],$_POST[$key]));
 		if(!preg_match($regEx[$key],$_POST[$key]))
 		{
 			$isValidate = false;

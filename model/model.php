@@ -225,4 +225,19 @@ function queryContactInsert(){
     ));
 }
 
+function queryContactEdit($id) {
+    $db = dbConnect();
+
+    $req = $db -> prepare("UPDATE `contacts` SET `first_name` = :new_firstname, `last_name` = :new_lastname, `email` = :new_email , `phone` = :new_phone
+                           WHERE contacts.id = $id");
+    var_dump($req);
+    $req -> execute(array(
+        'new_firstname' => $_POST['firstname'],
+        'new_lastname' => $_POST['lastname'],
+        'new_email' => $_POST['email'],
+        'new_phone' => $_POST['phone']
+    ));
+}
+
+
 ?>

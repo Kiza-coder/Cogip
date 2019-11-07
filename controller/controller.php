@@ -10,10 +10,22 @@ function displayContact(){
 }
 
 function displayDetailsContact($id) {
-    $req = queryContactDetails($id);
-    $request = queryContactDetailsInvoices($id);
-    include 'view/contactsDetailsView.php';
-    $req = queryContact();
+	include 'assets/includes/sanitize.php';
+	$req = queryContactDetails($id);
+	$request = queryContactDetailsInvoices($id);
+	$reqCompany = queryCompanie();
+	$req = queryContact();
+	
+
+		if(isset($_POST['edit'])){
+			if(isEmptyForm()==true && isValidateForm($regEx)==true)
+			{
+				queryContactEdit($id);
+				$req = queryContact();
+			}
+		}
+		include 'view/contactsDetailsView.php';
+
 
 }
 
