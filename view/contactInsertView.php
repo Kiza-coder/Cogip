@@ -1,5 +1,6 @@
 <?php
     $req_companies = $req -> fetchAll(PDO::FETCH_ASSOC);
+    require "assets/includes/sanitize.php";
 ?>
 
 <h1>Ajouter nouveau contact :</h1>

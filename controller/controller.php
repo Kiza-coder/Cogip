@@ -19,11 +19,15 @@ function displayDetailsContact($id) {
 
 function insertContact(){
     $req = queryCompanie();
-    if(isset($_POST['send'])){
-        queryContactInsert();
-    }
+    
     include 'view/contactInsertView.php';
-
+    
+    if(isset($_POST["send"])){
+		if(isEmptyForm()==true && isValidateForm($regEx)==true)
+		{
+			queryContactInsert();
+		}
+	}
 }
 
 ### functions companies ###
@@ -40,10 +44,16 @@ function displayCompanyDetail($id){
 }
 function insertCompany(){
     $req_type_company = queryType();
-    if(isset($_GET['send'])){
-        queryCompanyInsert();
-    }
+    
     include 'view/companiesInsertView.php';
+    
+    if(isset($_POST["send"])){
+		if(isEmptyForm()==true && isValidateForm($regEx)==true)
+		{
+			queryCompanyInsert();
+		}
+	}
+
 }
 
 
@@ -61,13 +71,13 @@ function displayInvoicesDetails($id){
 
 function insertInvoice(){
 	$req_companie = queryCompanie();
-	if(isset($_GET["companie_name"]))
+	if(isset($_POST["companie_name"]))
 	{
-		$req_contact = queryContactId($_GET["companie_name"]);
+		$req_contact = queryContactId($_POST["companie_name"]);
 
 	}	
 	include 'view/invoiceInsertView.php';
-	if(isset($_GET["send"])){
+	if(isset($_POST["send"])){
 		if(isEmptyForm()==true && isValidateForm($regEx)==true)
 		{
 			queryInvoiceInsert();

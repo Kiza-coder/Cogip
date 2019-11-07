@@ -62,19 +62,16 @@ function queryType(){
     return $req;
 }
 function queryCompanyInsert(){
-    $companyname = $_GET['name_comp'];
-    $comptva = $_GET['tva_comp'];
-    $compphone = $_GET['phone_comp'];
-    $type = $_GET['type_comp'];
+    $companyname = $_POST['name_comp'];
+    $comptva = $_POST['tva_comp'];
+    $compphone = $_POST['phone_comp'];
+    $type = $_POST['type_comp'];
     $country = "belgique";
-    echo $companyname;
-    echo $comptva;
-    echo $compphone;
-    echo $type;
+
     $db = dbConnect();
     
     $req = $db -> prepare("INSERT INTO `companies` (`name`, `country`, `VAT`, `id_type_companies`, `phone`) 
-    VALUES (:new_company,:country ,:new_VAT ,:id_type_comp ,:new_phone )");
+    VALUES (:new_company, :country, :new_VAT, :id_type_comp, :new_phone )");
     $req->execute(array(
         'new_company' => $companyname,
         'country' => $country,
@@ -179,9 +176,9 @@ function queryInvoicesDetails($id){
 function queryInvoiceInsert()
 {
         $date = date("m.d.y");
-        $number = $_GET['number_invoice'];
-        $id_companie = $_GET['companie_name'];
-        $id_contact = $_GET['contact_name'];
+        $number = $_POST['number_invoice'];
+        $id_companie = $_POST['companie_name'];
+        $id_contact = $_POST['contact_name'];
         $db = dbConnect();
         $req = $db -> prepare("INSERT INTO `invoices` (`date`, `number`, `id_companies`, `id_contacts`) VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
         $req->execute(array(

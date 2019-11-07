@@ -5,8 +5,8 @@ $regEx = array(
     "contact_name" => "#^[0-9]{1,20}$#",
     "companie_name" => "#^[0-9]{1,20}$#",
     "option_create" => "#^[a-z]{1,20}#",
-    "last_name" => "#^[\p{Latin}\][a-zA-Z]{2,20}[- ]?[\p{Latin}\][a-zA-Z]{0,20}[\p{Latin}\][a-zA-Z]{1}$#u",
-    "first_name" => "#^[\p{Latin}\][a-zA-Z]{2,20}[- ]?[\p{Latin}\][a-zA-Z]{0,20}[\p{Latin}\][a-zA-Z]{1}$#u",
+    "lastname" => "#^[\p{Latin}\][a-zA-Z]{2,20}[- ]?[\p{Latin}\][a-zA-Z]{0,20}[\p{Latin}\][a-zA-Z]{1}$#u",
+    "firstname" => "#^[\p{Latin}\][a-zA-Z]{2,20}[- ]?[\p{Latin}\][a-zA-Z]{0,20}[\p{Latin}\][a-zA-Z]{1}$#u",
     "phone" =>  "#^[0-9]{9,10}$#",
     "email" => "#^[a-zA-Z0-9]{1}[a-zA-Z0-9.-]{1,20}@[a-zA-Z]{3,20}.[a-zA-Z0-9]{2,3}$#",
     "company" => "#^[0-9]{1,20}$#",
@@ -18,11 +18,11 @@ $regEx = array(
 );
 function isEmptyForm()
 {
-	if(isset($_GET))
+	if(isset($_POST))
 	{
-		foreach($_GET as $key => $value)
+		foreach($_POST as $key => $value)
 		{			
-			if(empty($_GET[$key]))
+			if(empty($_POST[$key]))
 			{
 				return false;
 			}
@@ -35,10 +35,9 @@ function isEmptyForm()
 function isValidateForm($regEx)
 {
 	$isValidate = true ;
-	foreach($_GET as $key => $value)
+	foreach($_POST as $key => $value)
 	{
-		var_dump(preg_match($regEx[$key],$_GET[$key]));
-		if(!preg_match($regEx[$key],$_GET[$key]))
+		if(!preg_match($regEx[$key],$_POST[$key]))
 		{
 			$isValidate = false;
 		}

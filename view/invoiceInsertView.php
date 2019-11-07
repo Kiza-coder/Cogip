@@ -7,7 +7,7 @@
     
 
 	?>
-        <form action="" method="get">
+        <form action="" method="post">
 
             <input type='text' name="option_create" value='invoice'>
             <p>
@@ -21,7 +21,7 @@
             <p>
                 <label for="companie_name">Commany name</label>
                 <select name="companie_name" value="" onChange="submit();">
-                    <option value="<?=$_GET['companie_name'] ?? ""?>">Please choose company</option>
+                    <option value="<?=$_POST['companie_name'] ?? ""?>">Please choose company</option>
                     <?php foreach($companies as $key => $value)
 				{
                      $id_companie =  $value["id"];
@@ -40,7 +40,7 @@
                 <select name="contact_name">
                     <option value="">Please choose a contact</option>
                     <?php
-        if(isset($_GET["companie_name"])){
+        if(isset($_POST["companie_name"])){
         $contacts = $req_contact -> fetchAll(PDO::FETCH_ASSOC);
                             foreach($contacts as $key => $value)
                 {

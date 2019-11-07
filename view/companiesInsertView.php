@@ -2,11 +2,12 @@
 <?php
 
 $createcompany = $req_type_company -> fetchAll(PDO::FETCH_ASSOC);
+require "assets/includes/sanitize.php";
 
 // var_dump($createcompany);
 
 ?>
-<form action="" method="get">
+<form action="" method="post">
     <input type='text' name="option_create" value='company'>
     <p>
         <label for="name_comp">Company Name</label>
