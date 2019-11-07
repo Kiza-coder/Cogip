@@ -4,7 +4,7 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
+        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
     
         return $db;
     }
@@ -190,7 +190,7 @@ function queryInvoiceInsert()
 
 }
 
-
+##query contact
 function queryContactId($id){
 $db = dbConnect();
 $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
@@ -238,6 +238,40 @@ function queryContactEdit($id) {
         'new_phone' => $_POST['phone']
     ));
 }
+
+
+
+#query user
+function queryUserByUsername($username){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT * FROM users WHERE username = '$username'");
+    $req -> execute();
+    return $req;
+}
+
+function queryUser(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT username, acces.rights, users.id AS id_user  FROM users
+        INNER JOIN acces ON
+        id_acces = acces.id ");
+    $req -> execute();
+    return $req;
+}
+
+
+function queryUserById($id){
+    $id = $_GET['id'];
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT username, acces.rights, users.id AS id_user, password FROM users
+        INNER JOIN acces ON
+        id_acces = acces.id 
+        WHERE users.id = $id" );
+    $req -> execute();
+   
+    return $req;
+}
+
+
 
 
 ?>

@@ -1,5 +1,4 @@
-<?php
-
+    <?php
     $contactDetails = $req -> fetch(PDO::FETCH_ASSOC);
     $url = $contactDetails['cont_id'];
     $firstname = $contactDetails['first_name'];
@@ -12,9 +11,9 @@
     $value = 'contacts';
 ?>
 
-<h1>Contact : <?= $firstname . " " . $lastname ?></h1>
+    <h1>Contact : <?= $firstname . " " . $lastname ?></h1>
 
-<?php 
+    <?php 
 
 if(isset($_GET['option_edit'])){
 echo <<<EOF
@@ -48,14 +47,14 @@ EOF;
 ?>
 
 
-<h2>Contact pour les factures :</h2>
+    <h2>Contact pour les factures :</h2>
 
-<table>
-    <tr>
-        <th>Nº facture </th>
-        <th>Date</th>
-    </tr>
-    <?php 
+    <table>
+        <tr>
+            <th>Nº facture </th>
+            <th>Date</th>
+        </tr>
+        <?php 
         $contactInvoices = $request -> fetchAll(PDO::FETCH_ASSOC);
         foreach($contactInvoices as $key){
             $url = $key['inv_id'];
@@ -69,4 +68,4 @@ EOF;
      ?>
 
 
-</table>
+    </table>
