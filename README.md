@@ -6,7 +6,7 @@ This exercise makes us consolidate our knowledge in PHP, databases, SQL queries 
 
 The project will be evaluated on :
 
-- use of different URL parameters and filename [checkbox:checked] 
+- use of different URL parameters and filename  checked#[checkbox:checked] 
 - use of sanitization to avoid SQL injections [checkbox:checked] 
 - validation of data so that full-admin doesn’t input whatever [checkbox:checked]
 - construction of a functional relational database [checkbox:checked] 
