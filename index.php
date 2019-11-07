@@ -50,9 +50,7 @@ $_SESSION['rights'] = 3;
 
             <button type='submit' value='company' name='option_create'>create_company</button>
         </form>
-
     </header>
-
     <?php 
        if(isset($_GET['option_create'])){
             if ($_GET['option_create'] == 'invoice'){
@@ -84,11 +82,15 @@ $_SESSION['rights'] = 3;
             // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
             if(isset($_GET['id'])){
             displayCompanyDetail($_GET['id']);
-            } else {
-                displayCompaniesClientsandProviders();
+            } else if (isset($_GET['id_type'])){
+                if($_GET['id_type'] == 1){
+                displayClientsAll();
+                } else {
+                    displayProvidersAll();
                 }
-            
-            
+        } else {
+            displayCompaniesClientsandProviders();
+        }
             break;
             case 'contacts':
                 if(isset($_GET['id'])){
@@ -114,7 +116,7 @@ $_SESSION['rights'] = 3;
                 break;
 }
 }   
-}
+
     require "view/footerView.php";
      ?>
 

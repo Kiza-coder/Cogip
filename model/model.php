@@ -26,11 +26,19 @@ function queryCompaniesClients(){
     return $req;
 }
 
-function queryCompaniesProvider(){
+function queryCompaniesProviders(){
     $db = dbConnect();
     $req = $db -> prepare("SELECT * FROM companies WHERE id_type_companies='2'ORDER BY name ASC");
-    $req-> execute();
+    $req -> execute();
     return $req;
+}
+
+
+function queryTypeCompany(){
+    $db = dbConnect();
+    $reqtype = $db -> prepare("SELECT id AS id_type FROM type");
+    $reqtype -> execute();
+    return $reqtype;
 }
 // COMPANIES DETAIL //
 function queryDetailsCompany($id){
@@ -52,6 +60,16 @@ function queryDetailsInvoiceForCompany($id){
                                 WHERE companies.id=$id");
     $requestInv -> execute();
     return $requestInv;
+}
+
+function queryDetailsContactForCompany($id){
+    $db = dbConnect();
+    $requestContact = $db -> prepare("SELECT first_name, last_name, contacts.phone AS ph, email 
+                                    FROM contacts
+                                    INNER JOIN companies ON id_companies = companies.id
+                                    WHERE companies.id=$id");
+    $requestContact -> execute();
+    return $requestContact;
 }
 
 // insert company //

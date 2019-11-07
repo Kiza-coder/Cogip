@@ -1,4 +1,5 @@
 <?php
+#### HEADER COMPANY NAME + VAT + TYPE ####
 $company = $req -> fetch(PDO::FETCH_ASSOC);
 // echo "<pre>";
 // var_dump($company);
@@ -9,16 +10,29 @@ $type = $company['type_companies'];
 ?>
 <h1>Company : <?php echo $name?></h1>
 <h3>VAT:<?php echo $VAT ?></h3>
-<h3>Type:<?php echo $type?></h3>
+<h3>Type:<?php echo $type?></h3>    
 
 <!-- CONTACT RELATED TO COMPANIES -->
 <h3>Contact Persons</h3>
+
 <table>
 <tr>
     <th>Name</th>
     <th>Phone</th>
     <th>Email</th>
 </tr>
+<?php
+$copyDetailContact = $requestDetailContact -> fetchAll(PDO::FETCH_ASSOC);
+// var_dump($copyDetailContact);
+foreach($copyDetailContact as $key){
+    $firstname = $key['first_name'];
+    $lastname = $key['last_name'];
+    $phone = $key['ph'];
+    $email = $key['email'];
+    echo '<tr><td>'. $firstname . $lastname . '</td><td>' . $phone . '</td><td>' . $email . '</td></tr>' ;
+}
+?>
+</table>
 <?php
 ### CONTACT PERSONS ###
 $contact = $request -> fetchAll(PDO::FETCH_ASSOC);

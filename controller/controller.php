@@ -42,14 +42,25 @@ function insertContact(){
 ### functions companies ###
 function displayCompaniesClientsandProviders(){
     $req = queryCompaniesClients();
-    $requestp = queryCompaniesProvider();
+	$requestp = queryCompaniesProviders();
+	$requesttype = queryTypeCompany();
     include 'view/companiesView.php';
 }
 function displayCompanyDetail($id){
     $req = queryDetailsCompany($id);
     $request = queryDetailsContact($id);
-    $requestDetailClient = queryDetailsInvoiceForCompany($id);
-    include 'view/clientDetailsView.php';
+	$requestDetailClient = queryDetailsInvoiceForCompany($id);
+	$requestDetailContact = queryDetailsContactForCompany($id);
+    include 'view/companyDetailsView.php';
+}
+
+function displayClientsAll(){
+	$req_clients = queryCompaniesClients();
+	include 'view/companiesClientsView.php';
+}
+function displayProvidersAll(){
+	$req_providers = queryCompaniesProviders();
+	include 'view/companiesProvidersView.php';
 }
 function insertCompany(){
     $req_type_company = queryType();
@@ -64,7 +75,6 @@ function insertCompany(){
 	}
 
 }
-
 
 ### functions invoices ###
 function displayInvoices(){
@@ -127,5 +137,6 @@ function displayUserDetails($id)
 	$req = queryUserById($id);
 	include 'view/userDetailsView.php';
 }
+
 
 ?>
