@@ -6,20 +6,20 @@ This exercise makes us consolidate our knowledge in PHP, databases, SQL queries 
 
 The project will be evaluated on :
 
-- [X] use of different URL parameters and filename  [X]  
-- use of sanitization to avoid SQL injections [X] 
-- validation of data so that full-admin doesn’t input whatever [ ]
+- [X] use of different URL parameters and filename   
+- [ ] use of sanitization to avoid SQL injections 
+- validation of data so that full-admin doesn’t input whatever 
 - construction of a functional relational database 
 - use of correct joins in SQL 
 - use of aliases in SQL requests
-- implementation of a CRUD to read, add, modify and delete data [-] # '[-]' 
+- implementation of a CRUD to read, add, modify and delete data
 
 we should be able by the end of this challenge
 
-- crypt password in a database [checkbox:unchecked]
-- use an MVC structure [checkbox:checked] 
-- use a router [checkbox:checked]
-- setup a session [checkbox:unchecked]
+- crypt password in a database 
+- use an MVC structure 
+- use a router 
+- setup a session 
 - allow access to certain page in regards to permissions [checkbox:unchecked]
 
 Team members and inputs to the projects 
