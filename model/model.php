@@ -4,7 +4,7 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
+        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
     
         return $db;
     }

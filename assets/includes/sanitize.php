@@ -19,7 +19,6 @@ $regEx = array(
     "password" => "#[1-9a-zA-Z]#",
     "login" => "#[1-9a-zA-Z]#"	
 );
-echo preg_match("#^[a-zA-Z0-9]{1}[a-zA-Z0-9.-]{1,20}@[a-zA-Z]{3,20}.[a-zA-Z0-9]{2,3}$#", "daoudi07@hh.dkd");
 
 ## Function return bolean if  the fo s em
 function isEmptyForm()
@@ -43,7 +42,6 @@ function isValidateForm($regEx)
 	$isValidate = true ;
 	foreach($_POST as $key => $value)
 	{
-		var_dump(preg_match($regEx[$key],$_POST[$key]));
 		if(!preg_match($regEx[$key],$_POST[$key]))
 		{
 			$isValidate = false;
