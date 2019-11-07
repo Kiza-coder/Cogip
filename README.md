@@ -6,13 +6,13 @@ This exercise makes us consolidate our knowledge in PHP, databases, SQL queries 
 
 The project will be evaluated on :
 
-- use of different URL parameters and filename  checked#[checkbox:checked] 
-- use of sanitization to avoid SQL injections [checkbox:checked] 
-- validation of data so that full-admin doesn’t input whatever [checkbox:checked]
-- construction of a functional relational database [checkbox:checked] 
-- use of correct joins in SQL [checkbox:checked] 
-- use of aliases in SQL requests [checkbox:checked]
-- implementation of a CRUD to read, add, modify and delete data [checkbox:unchecked] 
+- use of different URL parameters and filename  ok 
+- use of sanitization to avoid SQL injections ok
+- validation of data so that full-admin doesn’t input whatever ok
+- construction of a functional relational database ok 
+- use of correct joins in SQL ok 
+- use of aliases in SQL requests \[x] # '[x]'
+- implementation of a CRUD to read, add, modify and delete data [-] # '[-]' 
 
 we should be able by the end of this challenge
 
