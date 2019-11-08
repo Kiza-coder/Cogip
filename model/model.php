@@ -252,7 +252,6 @@ function queryUserById($id){
         id_acces = acces.id 
         WHERE users.id = $id" );
     $req -> execute();
-   
     return $req;
 }
 
