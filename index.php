@@ -3,7 +3,7 @@ session_start();
 
 require 'controller/controller.php';
 $_SESSION["id"] = 2;
-$_SESSION['rights'] = 2;
+$_SESSION['rights'] = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,7 @@ $_SESSION['rights'] = 2;
  #### switch in for different button options in menu ###   
         switch($_GET['value']){
             case 'home':
-                include 'view/homeView.php';
+                displayLastFive();
                 break;
             case 'invoices':
             if(isset($_GET["id"])){

@@ -1,6 +1,6 @@
 <?php
 $regEx = array(
-    "number_invoice" => "#^F{1}[0-9]{8}-{1}[0-9]{3}$#",
+    "number_invoice" => "#^[0-9]{8}-{1}[0-9]{3}$#",
     "date" => "#^[0-9]{4}[-./]{1}[0-9]{2}[-./]{1}[0-9]{2}$#",
     "contact_name" => "#^[0-9]{1,20}$#",
     "companie_name" => "#^[0-9]{1,20}$#",
@@ -37,6 +37,9 @@ function isEmptyForm()
 }
 
 
+
+
+
 function isValidateForm($regEx)
 {
 	$isValidate = true ;
@@ -50,6 +53,8 @@ function isValidateForm($regEx)
 	return $isValidate;
 }
 
+
+
 function checkLogin($pass)
 {
 	if($_POST['password']==$pass){
@@ -59,6 +64,8 @@ function checkLogin($pass)
 		return false;
 	}
 }
+
+
 
 	
 ?>

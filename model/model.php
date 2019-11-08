@@ -4,7 +4,7 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
+        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
     
         return $db;
     }
@@ -169,7 +169,7 @@ function queryCompanie(){
 
 function queryInvoices(){
          $db = dbConnect();
-        $req = $db -> prepare("SELECT * FROM invoices AS i
+        $req = $db -> prepare("SELECT i.id AS inv_id, i.number, i.date, c.name, t.type_companies FROM invoices AS i
          INNER JOIN companies AS c
           ON i.id_companies = c.id
          INNER JOIN type AS t
@@ -182,7 +182,7 @@ function queryInvoices(){
 
 function queryInvoicesDetails($id){
         $db = dbConnect();
-        $req = $db -> prepare("SELECT i.number, c.id AS c_id, cont.id AS cont_id, c.name, c.VAT, t.type_companies,cont.first_name, cont.last_name, cont.email, cont.phone   FROM invoices AS i
+        $req = $db -> prepare("SELECT i.number, c.id AS c_id, cont.id AS cont_id, c.name, c.VAT, t.type_companies,cont.first_name, cont.last_name, cont.email, cont.phone, i.date, i.id AS in_id   FROM invoices AS i
          INNER JOIN companies AS c
           ON i.id_companies = c.id
          INNER JOIN type AS t
@@ -209,6 +209,19 @@ function queryInvoiceInsert()
                 'new_id_contact' => $id_contact
         ));
 
+}
+
+
+function queryInvoiceEdit($id)
+{
+    $db = dbConnect();
+    $req = $db -> prepare("UPDATE `invoices` SET `number` = :new_number, `date` = :new_date , `id_companies` = :new_id_companies, `id_contacts` = :new_id_companies WHERE invoices.id = $id");
+    $req ->execute(array(
+        'new_number' => $_POST['date'],
+        'new_date' => $_POST['number_invoice'],
+        'new_id_companies' => $_POST['companie_name'],
+        'new_id_contacts' => $_POST['contact_name']
+    ));
 }
 
 ##query contact
@@ -288,11 +301,43 @@ function queryUserById($id){
         id_acces = acces.id 
         WHERE users.id = $id" );
     $req -> execute();
-   
     return $req;
 }
 
+#### HOME PAGE LAST 5 INSERT ####
 
+function queryLastFiveInvoices(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT inv.id AS inv_id, inv.date, inv.number, com.name
+                           FROM invoices AS inv
+                           JOIN companies AS com
+                           ON inv.id_companies = com.id
+                           ORDER BY inv.id DESC LIMIT 5");
+    $req -> execute();
+    return $req;
+}
+
+function queryLastFiveContacts(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
+                           FROM contacts AS cont
+                           JOIN companies AS com
+                           ON cont.id_companies = com.id
+                           ORDER BY cont.id DESC LIMIT 5");
+    $req -> execute();
+    return $req;
+}
+
+function queryLastFiveCompanies(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT com.id AS com_id, com.name, com.country, com.VAT, ty.type_companies
+                           FROM companies AS com
+                           JOIN type AS ty
+                           ON com.id_type_companies = ty.id
+                           ORDER BY com.id DESC LIMIT 5");
+    $req -> execute();
+    return $req;
+}
 
 
 ?>
