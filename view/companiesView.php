@@ -78,7 +78,7 @@ foreach($company as $key){
     $VATcountry = $key['VAT'];
     $valueoptions = $_GET['value'];
     echo <<<EOF
-    <tr><td><a href="?id=$url&value=$valueoptions"> $namecomp</a></td><td> $VATcountry</td><td>$countrycomp</td></tr>
+    <tr class="text-center"><td><a href="?id=$url&value=$valueoptions"> $namecomp</a></td><td> $VATcountry</td><td>$countrycomp</td></tr>
 EOF;
 }
 ?>

@@ -1,11 +1,16 @@
-<h2>Clients</h2>
-<table>
-<tr>
-    <th>Name</th>
-    <th>VAT</th>
-    <th>Country</th>
-</tr>
-<?php
+<div class="card shadow mt-5">
+    <div class="card-header text-center h3">Clients</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>VAT</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
 $companies_clients =  $req_clients-> fetchAll(PDO::FETCH_ASSOC);
 foreach ($companies_clients as $key){
     $type = $key['id_type'];
@@ -18,4 +23,7 @@ foreach ($companies_clients as $key){
 EOF;
 }
 ?>
-</table>
+        </tbody>
+        </table>
+    </div>
+</div>
