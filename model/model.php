@@ -4,7 +4,7 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
+        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
     
         return $db;
     }
@@ -169,7 +169,7 @@ function queryCompanie(){
 
 function queryInvoices(){
          $db = dbConnect();
-        $req = $db -> prepare("SELECT * FROM invoices AS i
+        $req = $db -> prepare("SELECT i.id AS inv_id, i.number, i.date, c.name, t.type_companies FROM invoices AS i
          INNER JOIN companies AS c
           ON i.id_companies = c.id
          INNER JOIN type AS t
@@ -304,7 +304,40 @@ function queryUserById($id){
     return $req;
 }
 
+#### HOME PAGE LAST 5 INSERT ####
 
+function queryLastFiveInvoices(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT inv.id AS inv_id, inv.date, inv.number, com.name
+                           FROM invoices AS inv
+                           JOIN companies AS com
+                           ON inv.id_companies = com.id
+                           ORDER BY inv.id DESC LIMIT 5");
+    $req -> execute();
+    return $req;
+}
+
+function queryLastFiveContacts(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT cont.id AS cont_id, cont.first_name, cont.last_name, cont.phone, cont.email, com.name
+                           FROM contacts AS cont
+                           JOIN companies AS com
+                           ON cont.id_companies = com.id
+                           ORDER BY cont.id DESC LIMIT 5");
+    $req -> execute();
+    return $req;
+}
+
+function queryLastFiveCompanies(){
+    $db = dbConnect();
+    $req = $db -> prepare("SELECT com.id AS com_id, com.name, com.country, com.VAT, ty.type_companies
+                           FROM companies AS com
+                           JOIN type AS ty
+                           ON com.id_type_companies = ty.id
+                           ORDER BY com.id DESC LIMIT 5");
+    $req -> execute();
+    return $req;
+}
 
 
 ?>
