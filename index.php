@@ -3,7 +3,7 @@ session_start();
 
 require 'controller/controller.php';
 $_SESSION["id"] = 2;
-$_SESSION['rights'] = 1;
+$_SESSION['rights'] = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
