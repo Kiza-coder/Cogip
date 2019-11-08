@@ -100,7 +100,8 @@ Day 8:
 
 Day 9 and 10 :
 Trying to finish what we can.
-- permissions
+- Permissions
+- Deployment
 
 ## Tools
 
@@ -112,6 +113,7 @@ Trying to finish what we can.
 - Docker
 - Figma
 - Bootstrap
+- Heroku
 
 ## Progression
 - deletion part
