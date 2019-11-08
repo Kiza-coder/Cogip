@@ -19,8 +19,8 @@ we should be able by the end of this challenge
 - [ ] crypt password in a database 
 - [X] use an MVC structure 
 - [X] use a router 
-- [ ]setup a session 
-- [ ]allow access to certain page in regards to permissions [checkbox:unchecked]
+- [ ] setup a session 
+- [ ] allow access to certain page in regards to permissions [checkbox:unchecked]
 
 Team members and inputs to the projects 
 [Julien]()
