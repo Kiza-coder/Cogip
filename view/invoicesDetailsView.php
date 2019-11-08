@@ -1,5 +1,6 @@
 <h1>INVOICES </h1>
 <?php
+
 $invoices = $req -> fetch();
 $url = $invoices['in_id'];
 $url_contact = $invoices['cont_id'];
@@ -90,6 +91,7 @@ HTML;
 }
 else
 {
+    echo "pute";
 echo <<<HTML
 <div class="card shadow mt-5 mb-5">
 <div class="card-header h1 text-center">INVOICE : F-$numInvoice </div>
