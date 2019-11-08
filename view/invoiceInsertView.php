@@ -20,8 +20,8 @@
             </p>
             <p>
                 <label for="companie_name">Commany name</label>
-                <select name="companie_name" value="" onChange="submit();">
-                    <option value="<?=$_POST['companie_name'] ?? ""?>">Please choose company</option>
+                <select name="companie_name" value="<?= $_POST['companie_name'] ?? ""?>" onChange="submit();">
+                    <option value="">Please choose company</option>
                     <?php foreach($companies as $key => $value)
 				{
                      $id_companie =  $value["id"];

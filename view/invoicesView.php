@@ -14,7 +14,7 @@
   	
 
 foreach($invoices as $key){
-$url = $key['id'];
+$url = $key['inv_id'];
 $numInvoice = $key['number'];
 $name = $key["name"];
 $date = $key['date'];

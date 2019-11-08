@@ -9,19 +9,19 @@
         <form action="" method="post">
             <div class="card ml-auto mr-auto shadow-sm">
                 <div class="row mb-2 mt-3">
-                    <div class="form-group col-8 offset-4">
+                    <div class="form-group col-4 d-flex flex-column offset-4">
                         <label class="h4" for="lastname">Lastname :</label>
                         <input class="h5" type="text" name="lastname">
                     </div>
                 </div>
                 <div class="row mb-2 mt-1">
-                    <div class="form-group col-8 offset-4">
+                    <div class="form-group col-4 d-flex flex-column offset-4">
                         <label class="h4" for="firstname">Firstname :</label>
                         <input class="h5" type="text" name="firstname">
                     </div>
                 </div>
                 <div class="row mb-2 mt-1">
-                    <div class="form-group col-8 offset-4">
+                    <div class="form-group col-4 d-flex flex-column offset-4">
                         <label class="h4" for="company">Company :</label>
                         <select class="h5" type="text" name="company" value="$name">
                             <option value="">Please choose company</option>
@@ -35,13 +35,13 @@
                     </div>
                 </div>
                 <div class="row mb-2 mt-1">
-                    <div class="form-group col-6 offset-4">
+                    <div class="form-group col-4 d-flex flex-column offset-4">
                         <label class="h4" for="email">Email :</label>
                         <input class="h5" type="text" name="email">
                     </div>
                 </div>
                 <div class="row mb-2 mt-1">
-                    <div class="form-group col-8 offset-4">
+                    <div class="form-group col-4 d-flex flex-column offset-4">
                         <label class="h4" for="phone">Phone :</label>
                         <input class="h5" type="text" name="phone">
                     </div>

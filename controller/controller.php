@@ -136,5 +136,14 @@ function displayUserDetails($id)
 	include 'view/userDetailsView.php';
 }
 
+#### FUNCTION DISPLAY LAST 5 ####
+
+function displayLastFive(){
+	$reqInvoices = queryLastFiveInvoices();
+	$reqContacts = queryLastFiveContacts();
+	$reqCompanies = queryLastFiveCompanies();
+	include "view/homeView.php";
+}
+
 
 ?>

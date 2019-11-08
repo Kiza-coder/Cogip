@@ -12,10 +12,10 @@ $last_name = $invoices['last_name'];
 $email = $invoices['email'];    
 $phone = $invoices['phone'];
 $value_company = "companies";
-$value_contact = "contacts";   
+$value_contact = "contacts";
 
 
-echo <<<EOF
+echo <<<HTML
 <p>Company linked to the invoice :::</p>
 <table>
     <tr>
@@ -45,6 +45,6 @@ echo <<<EOF
 </table>
 
 
-EOF;
+HTML;
 
 ?>
