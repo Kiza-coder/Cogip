@@ -22,17 +22,17 @@ we should be able by the end of this challenge
 - [ ] setup a session 
 - [X] allow access to certain page in regards to permissions 
 
-<<<<<<< HEAD
+
 Team members and inputs to the projects :
 Julien : part contacts
 Kiza : part invoices
 Laly : part companies
-=======
+
 ### Collaborators
 [Julien](https://github.com/ggbjulien)
 [Kiza](https://github.com/Kiza-coder/) 
-[Laly] (https://github.com/lalsdev)
->>>>>>> development
+[Laly](https://github.com/lalsdev)
+
 
 ## Database relations
 
