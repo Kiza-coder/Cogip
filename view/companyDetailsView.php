@@ -8,20 +8,28 @@ $name = $company['name'];
 $VAT = $company['VAT'];
 $type = $company['type_companies'];
 ?>
-<h1>Company : <?php echo $name?></h1>
-<h3>VAT:<?php echo $VAT ?></h3>
-<h3>Type:<?php echo $type?></h3>    
+<div class="card shadow mt-5">
+    <div class="card-header h3 text-center h3"><?php echo $name?></div>
+    <div class="card-body">
+    <div class="row d-flex justify-content-around">
+    <h3 class="mr-5">VAT:<?php echo $VAT ?></h3>
+    <h3 class="ml-5"><?php echo $type?></h3>    
+    </div>
 
 <!-- CONTACT RELATED TO COMPANIES -->
-<h3>Contact Persons</h3>
-
-<table>
-<tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-</tr>
-<?php
+<div class="card">
+    <div class="card-header">Contact Persons</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
 $copyDetailContact = $requestDetailContact -> fetchAll(PDO::FETCH_ASSOC);
 // var_dump($copyDetailContact);
 foreach($copyDetailContact as $key){
@@ -29,10 +37,15 @@ foreach($copyDetailContact as $key){
     $lastname = $key['last_name'];
     $phone = $key['ph'];
     $email = $key['email'];
-    echo '<tr><td>'. $firstname . $lastname . '</td><td>' . $phone . '</td><td>' . $email . '</td></tr>' ;
+    echo '<tr class="text-center"><td>'. $firstname . $lastname . '</td><td>' . $phone . '</td><td>' . $email . '</td></tr>' ;
 }
 ?>
-</table>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 <?php
 ### CONTACT PERSONS ###
 $contact = $request -> fetchAll(PDO::FETCH_ASSOC);
@@ -50,7 +63,6 @@ echo <<<EOF
 EOF;
 }
 ?>
-</table>
 <!-- INVOICES RELATED TO COMPANIES -->
 <h3>Invoices</h3>
 <table>
@@ -80,3 +92,5 @@ EOF;
 // var_dump($contact);
 // echo "</pre>";
 ?>
+</div>
+</div>
