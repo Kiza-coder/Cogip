@@ -4,7 +4,7 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
+        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
     
         return $db;
     }
@@ -182,7 +182,7 @@ function queryInvoices(){
 
 function queryInvoicesDetails($id){
         $db = dbConnect();
-        $req = $db -> prepare("SELECT i.number, c.id AS c_id, cont.id AS cont_id, c.name, c.VAT, t.type_companies,cont.first_name, cont.last_name, cont.email, cont.phone   FROM invoices AS i
+        $req = $db -> prepare("SELECT i.number, c.id AS c_id, cont.id AS cont_id, c.name, c.VAT, t.type_companies,cont.first_name, cont.last_name, cont.email, cont.phone, i.date, i.id AS in_id   FROM invoices AS i
          INNER JOIN companies AS c
           ON i.id_companies = c.id
          INNER JOIN type AS t
@@ -209,6 +209,19 @@ function queryInvoiceInsert()
                 'new_id_contact' => $id_contact
         ));
 
+}
+
+
+function queryInvoiceEdit($id)
+{
+    $db = dbConnect();
+    $req = $db -> prepare("UPDATE `invoices` SET `number` = :new_number, `date` = :new_date , `id_companies` = :new_id_companies, `id_contacts` = :new_id_companies WHERE invoices.id = $id");
+    $req ->execute(array(
+        'new_number' => $_POST['date'],
+        'new_date' => $_POST['number_invoice'],
+        'new_id_companies' => $_POST['companie_name'],
+        'new_id_contacts' => $_POST['contact_name']
+    ));
 }
 
 ##query contact
@@ -288,7 +301,6 @@ function queryUserById($id){
         id_acces = acces.id 
         WHERE users.id = $id" );
     $req -> execute();
-   
     return $req;
 }
 

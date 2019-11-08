@@ -82,7 +82,20 @@ function displayInvoices(){
 
 
 function displayInvoicesDetails($id){
+	include 'assets/includes/sanitize.php';
 	$req = queryInvoicesDetails($id);
+	$req_companie = queryCompanie();
+	if(isset($_POST['companie_name']))	
+	{
+		$req_contact = queryContactId($_POST["companie_name"]);
+
+	}
+	if(isset($_POST['edit'])){
+			if(isEmptyForm()==true && isValidateForm($regEx)==true)
+			{
+				queryInvoiceEdit($id);
+			}
+	}	
 	include 'view/invoicesDetailsView.php';
 }
 
@@ -115,8 +128,10 @@ function login(){
 			
 		}
 	}
+
 	else{
-		include 'view/loginView.php';
+
+			include 'view/loginView.php';
 	}
 	
 }

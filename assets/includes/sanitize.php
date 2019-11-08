@@ -37,6 +37,9 @@ function isEmptyForm()
 }
 
 
+
+
+
 function isValidateForm($regEx)
 {
 	$isValidate = true ;
@@ -50,6 +53,8 @@ function isValidateForm($regEx)
 	return $isValidate;
 }
 
+
+
 function checkLogin($pass)
 {
 	if($_POST['password']==$pass){
@@ -59,6 +64,8 @@ function checkLogin($pass)
 		return false;
 	}
 }
+
+
 
 	
 ?>
