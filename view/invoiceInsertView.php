@@ -9,7 +9,7 @@
 	?>
         <form action="" method="post">
 
-            <input type='text' name="option_create" value='invoice'>
+            <input type='hidden' name="option_create" value='invoice'>
             <p>
                 <label for="number_invoice">Number Invoice</label>
                 <input type="text" name="number_invoice">

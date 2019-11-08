@@ -1,8 +1,5 @@
 <?php 
 require 'model/model.php';
-
-
-
 ### functions contact page ###
 function displayContact(){ 
     $req = queryContact();
@@ -10,17 +7,26 @@ function displayContact(){
 }
 
 function displayDetailsContact($id) {
-    $req = queryContactDetails($id);
-    $request = queryContactDetailsInvoices($id);
-    include 'view/contactsDetailsView.php';
-    $req = queryContact();
+	include 'assets/includes/sanitize.php';
+	$req = queryContactDetails($id);
+	$request = queryContactDetailsInvoices($id);
+	$reqCompany = queryCompanie();
+
+		if(isset($_POST['edit'])){
+			if(isEmptyForm()==true && isValidateForm($regEx)==true)
+			{
+				queryContactEdit($id);
+				$req = queryContactDetails($id);
+			}
+		}
+		include 'view/contactsDetailsView.php';
+
 
 }
 
 function insertContact(){
-    $req = queryCompanie();
-    
-    include 'view/contactInsertView.php';
+	require "assets/includes/sanitize.php";
+	$req = queryCompanie();
     
     if(isset($_POST["send"])){
 		if(isEmptyForm()==true && isValidateForm($regEx)==true)
@@ -28,6 +34,7 @@ function insertContact(){
 			queryContactInsert();
 		}
 	}
+	include 'view/contactInsertView.php';
 }
 
 ### functions companies ###
@@ -92,6 +99,42 @@ function insertInvoice(){
 		{
 			queryInvoiceInsert();
 		}
-	}	
+	}
 }
+
+##function login
+function login(){
+	include 'assets/includes/sanitize.php';
+	if(isset($_POST["send"]))
+	{
+
+		if(isEmptyForm()==true && isValidateForm($regEx)==true)
+		{
+			$req = queryUserByUsername($_POST['login']);
+			include 'view/loginView.php';
+			
+		}
+	}
+	else{
+		include 'view/loginView.php';
+	}
+	
+}
+
+
+##user
+function displayUser()
+{
+	$req = queryUser();
+	include "view/userView.php";
+}
+
+
+function displayUserDetails($id)
+{
+	$req = queryUserById($id);
+	include 'view/userDetailsView.php';
+}
+
+
 ?>

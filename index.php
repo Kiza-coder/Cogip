@@ -1,8 +1,9 @@
 <?php
 session_start();
-require 'controller/controller.php';
 
-$_SESSION['id'] = 2;
+require 'controller/controller.php';
+$_SESSION["id"] = 2;
+$_SESSION['rights'] = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,37 +13,23 @@ $_SESSION['id'] = 2;
     <meta name="viewport" content="width=device-width, initial-scale=value.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 
-<body>
-    <header>
-        <form action="" method="get">
-            <button type='submit' value='home' name='value'>home</button>
-            <button type='submit' value='invoices' name='value'>invoices</button>
-            <button type='submit' value='companies' name='value'>companies</button>
-            <button type='submit' value='contacts' name='value'>contacts</button>
-            <?php if ($_SESSION['id'] == 3){
-                echo "<button type='submit' value='connexion' name='value'>connexion</button>";
-            } else {
-                echo "<button type='submit' value='login' name='value'>Admin</button>";
-            }
-            ?>
-
-
-        </form>
-
-
-
-        <form action="" method="GET">
-            <button type='submit' value='invoice' name='option_create'>create_invoice</button>
-
-            <button type='submit' value='contact' name='option_create'>create_contact</button>
-
-            <button type='submit' value='company' name='option_create'>create_company</button>
-        </form>
-    </header>
+<body class="bg-light pt-5">
     <?php 
+        require "view/headerView.php";
+    ?>
+    <div class="container">
 
+
+        <?php 
        if(isset($_GET['option_create'])){
             if ($_GET['option_create'] == 'invoice'){
                 insertInvoice();
@@ -93,10 +80,27 @@ $_SESSION['id'] = 2;
             case 'connexion':
                 include 'view/connexionView.php';
                 break;
-        }
-}   
+            case 'login':
+                login();
+                break;
+        
+            case 'user':
+                if(isset($_GET['id'])){
+                    displayUserDetails($_GET['id']);
+                }
+                else{
+                displayUser();
+            }
+                break;
 }
+}   
+            }
+
      ?>
+    </div>
+    <?php 
+        require "view/footerView.php";
+        ?>
 </body>
 
 </html>
