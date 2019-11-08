@@ -11,7 +11,7 @@ $type = $company['type_companies'];
 <div class="card shadow mt-5">
     <div class="card-header h3 text-center h3"><?php echo $name?></div>
     <div class="card-body">
-    <div class="row d-flex justify-content-around">
+    <div class="row d-flex">
     <h3 class="mr-5">VAT:<?php echo $VAT ?></h3>
     <h3 class="ml-5"><?php echo $type?></h3>    
     </div>
@@ -64,14 +64,19 @@ EOF;
 }
 ?>
 <!-- INVOICES RELATED TO COMPANIES -->
-<h3>Invoices</h3>
-<table>
-<tr>
-    <th>Invoice number</th>
-    <th>Date</th>
-    <th>Contact Person</th>
-</tr>
-<?php
+<div class="card mt-3">
+    <div class="card-header">Invoices</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                <th>Invoice number</th>
+                <th>Date</th>
+                <th>Contact Person</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
 ### INVOICES RELATED TO COMPANIES###
 $invoice = $requestDetailClient -> fetchAll(PDO::FETCH_ASSOC);
 // var_dump($invoice);
@@ -82,15 +87,13 @@ foreach($invoice as $key){
     $contactinv = $key['e'];
     $valueoptions = "invoices";
 echo <<<EOF
-<tr><td><a href="?id=$url&value=$valueoptions">$numberinv</td><td>$dateinv</td><td>$contactinv</td></tr>
+<tr class="text-center"><td><a href="?id=$url&value=$valueoptions">$numberinv</td><td>$dateinv</td><td>$contactinv</td></tr>
 EOF;
 }
 ?>
-</table>
-<?php
-// echo "<pre>";
-// var_dump($contact);
-// echo "</pre>";
-?>
+            </tbody>
+        </table>
+    </div>
+</div>
 </div>
 </div>
