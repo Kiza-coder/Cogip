@@ -24,7 +24,6 @@ $url = $key['inv_id'];
 $numInvoice = $key['number'];
 $name = $key["name"];
 $date = $key['date'];
-$last_name = $key["last_name"];
 $type_companies = $key['type_companies'];
 $value = "invoices";
 
