@@ -14,7 +14,8 @@ $regEx = array(
     "phone_comp" => "#^[0-9]{9,10}$#",
     "name_comp" => "#^[a-zA-Z0-9]{1}#",
     "tva_comp" => "#^B{1}E{1}0{1}[0-9]{9}$#",
-    "send" => "#send#",
+	"send" => "#send#",
+	"edit" => "#edit#",	
     "password" => "#[1-9a-zA-Z]#",
     "login" => "#[1-9a-zA-Z]#"	
 );

@@ -7,17 +7,26 @@ function displayContact(){
 }
 
 function displayDetailsContact($id) {
-    $req = queryContactDetails($id);
-    $request = queryContactDetailsInvoices($id);
-    include 'view/contactsDetailsView.php';
-    $req = queryContact();
+	include 'assets/includes/sanitize.php';
+	$req = queryContactDetails($id);
+	$request = queryContactDetailsInvoices($id);
+	$reqCompany = queryCompanie();
+
+		if(isset($_POST['edit'])){
+			if(isEmptyForm()==true && isValidateForm($regEx)==true)
+			{
+				queryContactEdit($id);
+				$req = queryContactDetails($id);
+			}
+		}
+		include 'view/contactsDetailsView.php';
+
 
 }
 
 function insertContact(){
-    $req = queryCompanie();
-    
-    include 'view/contactInsertView.php';
+	require "assets/includes/sanitize.php";
+	$req = queryCompanie();
     
     if(isset($_POST["send"])){
 		if(isEmptyForm()==true && isValidateForm($regEx)==true)
@@ -25,19 +34,31 @@ function insertContact(){
 			queryContactInsert();
 		}
 	}
+	include 'view/contactInsertView.php';
 }
 
 ### functions companies ###
 function displayCompaniesClientsandProviders(){
     $req = queryCompaniesClients();
-    $requestp = queryCompaniesProvider();
+	$requestp = queryCompaniesProviders();
+	$requesttype = queryTypeCompany();
     include 'view/companiesView.php';
 }
 function displayCompanyDetail($id){
     $req = queryDetailsCompany($id);
     $request = queryDetailsContact($id);
-    $requestDetailClient = queryDetailsInvoiceForCompany($id);
-    include 'view/clientDetailsView.php';
+	$requestDetailClient = queryDetailsInvoiceForCompany($id);
+	$requestDetailContact = queryDetailsContactForCompany($id);
+    include 'view/companyDetailsView.php';
+}
+
+function displayClientsAll(){
+	$req_clients = queryCompaniesClients();
+	include 'view/companiesClientsView.php';
+}
+function displayProvidersAll(){
+	$req_providers = queryCompaniesProviders();
+	include 'view/companiesProvidersView.php';
 }
 function insertCompany(){
     $req_type_company = queryType();
@@ -52,7 +73,6 @@ function insertCompany(){
 	}
 
 }
-
 
 ### functions invoices ###
 function displayInvoices(){
@@ -117,5 +137,6 @@ function displayUserDetails($id)
 	$req = queryUserById($id);
 	include 'view/userDetailsView.php';
 }
+
 
 ?>

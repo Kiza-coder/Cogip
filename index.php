@@ -3,7 +3,7 @@ session_start();
 
 require 'controller/controller.php';
 $_SESSION["id"] = 2;
-$_SESSION['rights'] = 3;
+$_SESSION['rights'] = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,44 +13,23 @@ $_SESSION['rights'] = 3;
     <meta name="viewport" content="width=device-width, initial-scale=value.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 
-<body>
-    <header>
-        <form action="" method="get">
-            <button type='submit' value='home' name='value'>home</button>
-            <button type='submit' value='invoices' name='value'>invoices</button>
-            <button type='submit' value='companies' name='value'>companies</button>
-            <button type='submit' value='contacts' name='value'>contacts</button>
-            <button type="submit" value='login' name='value'>Login</button>
-            <?php if ($_SESSION['id'] == 3){
-                echo "<button type='submit' value='connexion' name='value'>connexion</button>";
-            } else {
-                echo "<button type='submit' value='login' name='value'>Admin</button>";
-            }
-            if($_SESSION["rights"]==3)
-            {
-                echo "<button type='submit' value='user' name='value'>UserLIst</button>";
-            }
-            ?>
-
-
-
-        </form>
-
-
-
-        <form action="" method="GET">
-            <button type='submit' value='invoice' name='option_create'>create_invoice</button>
-
-            <button type='submit' value='contact' name='option_create'>create_contact</button>
-
-            <button type='submit' value='company' name='option_create'>create_company</button>
-        </form>
-
-    </header>
-
+<body class="bg-light pt-5">
     <?php 
+        require "view/headerView.php";
+    ?>
+    <div class="container">
+
+
+        <?php 
        if(isset($_GET['option_create'])){
             if ($_GET['option_create'] == 'invoice'){
                 insertInvoice();
@@ -81,9 +60,15 @@ $_SESSION['rights'] = 3;
             // if user clicks on the link with id equals to row in db redirect to detailled page else stay where you are
             if(isset($_GET['id'])){
             displayCompanyDetail($_GET['id']);
-            } else {
+            } else if (isset($_GET['id_type'])){
+                if($_GET['id_type'] == 1){
+                displayClientsAll();
+                } else {
+                    displayProvidersAll();
+                }
+        } else {
             displayCompaniesClientsandProviders();
-            }
+        }
             break;
             case 'contacts':
                 if(isset($_GET['id'])){
@@ -109,8 +94,13 @@ $_SESSION['rights'] = 3;
                 break;
 }
 }   
-}
+            }
+
      ?>
+    </div>
+    <?php 
+        require "view/footerView.php";
+        ?>
 </body>
 
 </html>
