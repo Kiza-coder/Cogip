@@ -8,28 +8,20 @@ $name = $company['name'];
 $VAT = $company['VAT'];
 $type = $company['type_companies'];
 ?>
-<div class="card shadow mt-5">
-    <div class="card-header h3 text-center h3"><?php echo $name?></div>
-    <div class="card-body">
-    <div class="row d-flex">
-    <h3 class="mr-5">VAT:<?php echo $VAT ?></h3>
-    <h3 class="ml-5"><?php echo $type?></h3>    
-    </div>
+<h1>Company : <?php echo $name?></h1>
+<h3>VAT:<?php echo $VAT ?></h3>
+<h3>Type:<?php echo $type?></h3>    
 
 <!-- CONTACT RELATED TO COMPANIES -->
-<div class="card">
-    <div class="card-header">Contact Persons</div>
-    <div class="card-body">
-        <table class="table">
-            <thead>
-                <tr class="text-center">
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
+<h3>Contact Persons</h3>
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+</tr>
+<?php
 $copyDetailContact = $requestDetailContact -> fetchAll(PDO::FETCH_ASSOC);
 // var_dump($copyDetailContact);
 foreach($copyDetailContact as $key){
@@ -37,15 +29,10 @@ foreach($copyDetailContact as $key){
     $lastname = $key['last_name'];
     $phone = $key['ph'];
     $email = $key['email'];
-    echo '<tr class="text-center"><td>'. $firstname . $lastname . '</td><td>' . $phone . '</td><td>' . $email . '</td></tr>' ;
+    echo '<tr><td>'. $firstname . $lastname . '</td><td>' . $phone . '</td><td>' . $email . '</td></tr>' ;
 }
 ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-
+</table>
 <?php
 ### CONTACT PERSONS ###
 $contact = $request -> fetchAll(PDO::FETCH_ASSOC);
@@ -63,20 +50,16 @@ echo <<<EOF
 EOF;
 }
 ?>
+</table>
 <!-- INVOICES RELATED TO COMPANIES -->
-<div class="card mt-3">
-    <div class="card-header">Invoices</div>
-    <div class="card-body">
-        <table class="table">
-            <thead>
-                <tr class="text-center">
-                <th>Invoice number</th>
-                <th>Date</th>
-                <th>Contact Person</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
+<h3>Invoices</h3>
+<table>
+<tr>
+    <th>Invoice number</th>
+    <th>Date</th>
+    <th>Contact Person</th>
+</tr>
+<?php
 ### INVOICES RELATED TO COMPANIES###
 $invoice = $requestDetailClient -> fetchAll(PDO::FETCH_ASSOC);
 // var_dump($invoice);
@@ -87,13 +70,13 @@ foreach($invoice as $key){
     $contactinv = $key['e'];
     $valueoptions = "invoices";
 echo <<<EOF
-<tr class="text-center"><td><a href="?id=$url&value=$valueoptions">$numberinv</td><td>$dateinv</td><td>$contactinv</td></tr>
+<tr><td><a href="?id=$url&value=$valueoptions">$numberinv</td><td>$dateinv</td><td>$contactinv</td></tr>
 EOF;
 }
 ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
-</div>
+</table>
+<?php
+// echo "<pre>";
+// var_dump($contact);
+// echo "</pre>";
+?>

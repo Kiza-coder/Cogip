@@ -20,12 +20,12 @@ we should be able by the end of this challenge
 - [X] use an MVC structure 
 - [X] use a router 
 - [ ] setup a session 
-- [ ] allow access to certain page in regards to permissions [checkbox:unchecked]
+- [X] allow access to certain page in regards to permissions 
 
-Team members and inputs to the projects 
-[Julien]()
-[Kiza]() 
-[Laly] ()
+### Collaborators
+[Julien](https://github.com/ggbjulien)
+[Kiza](https://github.com/Kiza-coder/) 
+[Laly] (https://github.com/lalsdev)
 
 ## Database relations
 
@@ -33,9 +33,15 @@ Team members and inputs to the projects
 
 ## The mission
 
-The boss of the account team Mister Ranu in the Cogip company needs to have access to a DB which will reference all invoices made in the Cogip company, all contacts linked to the transactions, the company, the type of company which had a transaction with Cogip.
+The account team's boss Mister Ranu from the Cogip company needs to have access to a DB which will reference all invoices made in the Cogip company, all contacts linked to the transactions, the company, the type of company which had a transaction with Cogip.
 
-The goal is to create a system for the super user which will have access to all CRUD actions, the normal user which will have the possibility to CR actions and another access for the normal user which will only have the access to the R action. 10 Days to make this project. Part of BeCode training in Web Development.
+The goal is to create a system for the super user (Ranu) which will have access to all CRUD actions, the normal user (his wife) which will have the possibility to CR actions and another access for the normal user which will only have the access to the R action. 10 Days to make this project. Part of BeCode training in Web Development.
+
+## Preview
+### Create
+### Read
+### Update
+### Delete
 
 ## Methodology
 
@@ -76,7 +82,9 @@ Day 5:
 Day 6:
 - Merge all work to development branch and test
 - Sanitize inputs with Regex
-- add Access and User tables to DB
+- Add tables to DB :
+    - access
+    - user
 
 Day 7:
 - Login page + add super-user to db (Kiza)
@@ -87,12 +95,12 @@ Day 7:
 - Start Welcome Page (Laly)
 
 Day 8:
+- Design the pages with Bootstrap
+- Looking for ways to deploy the site
 
-Day 9:
-FREESTYLE ON 
-Day 10:
-
-## Content
+Day 9 and 10 :
+Trying to finish what we can.
+- permissions
 
 ## Tools
 
@@ -100,10 +108,15 @@ Day 10:
 - PHP
 - PHP myadmin
 - SQL 
+- PDO method
 - Docker
 - Figma
+- Bootstrap
 
 ## Progression
+- deletion part
+- sessions
+- display errors
 
 ## Credits
 Made in Belgium
