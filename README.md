@@ -71,38 +71,38 @@ Day 2:
 
 
 Day 3:
-- prepare the router
-- create the header common to all pages
-- working on displaying elements from db in the right pages
-- understanding how url work to change pages with links
-  - global page companies + detailled page if user clicks on link (Laly)
-  - global page contacts + detailled page if user clicks on link (Kiza)
-  - global page invoices + detailled page if user clicks on link (Julien)
+- Preparing the router
+- Creating the header common to all pages
+- Working on displaying elements from db in the right pages
+- Understanding how urls work to change pages with links
+  - Global page companies + detailled page if user clicks on link (Laly)
+  - Global page contacts + detailled page if user clicks on link (Kiza)
+  - Global page invoices + detailled page if user clicks on link (Julien)
 
 
 Day 4:
-- everyone working on their on parts (company, contacts, invoices)
+- Everyone working on their on parts (company, contacts, invoices)
     - SQL queries
-    - display elements on the global page
-    - display elements on the detailled page
-- Merge all work to the development branch (Julien)
-- Work on the CRUD (Create and Read) 
-    - Start work on Insert page invoices (Kiza)
+    - Displaying elements on the global page
+    - Displaying elements on the detailled page
+- Merging all work to the development branch (Julien)
+- Working on the CRUD (Create and Read) 
+    - Starting to work on Insert page invoices (Kiza)
  
  
 Day 5:
   - DEBUGGING a lot before we could do :
-  - Insert pages invoices, companies, contacts
+  - Inserting pages invoices, companies, contacts
   
   
 Day 6:
-  - Merge all work to development branch and test
-  - Sanitize inputs with Regex
+  - Merging all work to development branch and test
+  - Sanitizing inputs with Regex
 
 Day 6:
-- Merge all work to development branch and test
-- Sanitize inputs with Regex
-- Add tables to DB :
+- Merging all work to development branch and test
+- Sanitizing inputs with Regex
+- Adding tables to DB :
     - access
     - user
     
