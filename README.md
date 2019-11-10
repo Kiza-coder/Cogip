@@ -29,9 +29,9 @@ Kiza : part invoices
 Laly : part companies
 
 ### Collaborators
-[Julien](https://github.com/ggbjulien)
-[Kiza](https://github.com/Kiza-coder/) 
-[Laly](https://github.com/lalsdev)
+[Julien](https://github.com/ggbjulien)<br/>
+[Kiza](https://github.com/Kiza-coder/) <br/>
+[Laly](https://github.com/lalsdev)<br/>
 
 
 ## Database relations
@@ -44,11 +44,13 @@ The account team's boss Mister Ranu from the Cogip company needs to have access 
 
 The goal is to create a system for the super user (Ranu) which will have access to all CRUD actions, the normal user (his wife) which will have the possibility to CR actions and another access for the normal user which will only have the access to the R action. 10 Days to make this project. Part of BeCode training in Web Development.
 
-## Preview
+## Previews
 ### Create
+![create](assets/img/create.png)
 ### Read
+![read](assets/img/read.png)
 ### Update
-### Delete
+![update](assets/img/update.png)
 
 ## Methodology
 
@@ -69,7 +71,6 @@ Day 2:
 
 
 Day 3:
-<<<<<<< HEAD
 - prepare the router
 - create the header common to all pages
 - working on displaying elements from db in the right pages
@@ -79,31 +80,6 @@ Day 3:
   - global page invoices + detailled page if user clicks on link (Julien)
 
 
-
-Day 4:
-- everyone working on their on parts (company, contacts, invoices)
-  - SQL queries
-  - display elements on the global page
-  - display elements on the detailled page
- - Merge all work to the development branch
- - Start work on Insert page invoices
- 
- 
-Day 5:
-  - DEBUGGING a lot before we could do :
-  - Insert pages invoices, companies, contacts
-  
-Day 6:
-  - Merge all work to development branch and test
-  - Sanitize inputs with Regex
- 
-  
-=======
-
-- create the header common to all pages
-- working on displaying elements from db (companies, contacts)
-- prepare the router
-
 Day 4:
 - everyone working on their on parts (company, contacts, invoices)
     - SQL queries
@@ -112,10 +88,16 @@ Day 4:
 - Merge all work to the development branch (Julien)
 - Work on the CRUD (Create and Read) 
     - Start work on Insert page invoices (Kiza)
-
+ 
+ 
 Day 5:
-- DEBUGGING a lot before we could do :
-- Insert pages invoices, companies, contacts
+  - DEBUGGING a lot before we could do :
+  - Insert pages invoices, companies, contacts
+  
+  
+Day 6:
+  - Merge all work to development branch and test
+  - Sanitize inputs with Regex
 
 Day 6:
 - Merge all work to development branch and test
@@ -123,8 +105,7 @@ Day 6:
 - Add tables to DB :
     - access
     - user
-
->>>>>>> development
+    
 Day 7:
 - Login page + add super-user to db (Kiza)
 - Router organisation : url pages for buttons header(Kiza)
@@ -152,12 +133,12 @@ Trying to finish what we can.
 - Docker
 - Figma
 - Bootstrap
-- Heroku
 
 ## Progression
 - deletion part
 - sessions
 - display errors
+- deployment
 
 ## Credits
 Made in Belgium
