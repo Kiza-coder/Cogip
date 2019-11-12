@@ -21,6 +21,7 @@ $value_contact = "contacts";
 
 if(isset($_GET['option_edit']))
 {
+    
 	$companies = $req_companie -> fetchAll(PDO::FETCH_ASSOC);
 	
 echo <<<HTML
@@ -84,7 +85,7 @@ echo <<<HTML
 </div>
 </div>
 </form>
-HTML;  
+HTML;
 ?>
 
 <?php

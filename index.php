@@ -44,8 +44,8 @@ $_SESSION['rights'] = 1;
                 insertContact();
             }
             }
-            else{
-         if(isset($_GET['value'])){
+            else if(isset($_GET['value'])){
+         
  #### switch in for different button options in menu ###   
         switch($_GET['value']){
             case 'home':
@@ -97,6 +97,8 @@ $_SESSION['rights'] = 1;
                 break;
 }
 }   
+             else {
+                displayLastFive();
             }
 
      ?>

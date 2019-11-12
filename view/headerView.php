@@ -6,7 +6,7 @@
             <li class="nav-item"><a href="?value=invoices" class="nav-link">Invoices</a></li>
             <li class="nav-item"><a href="?value=companies" class="nav-link">Companies</a></li>
             <li class="nav-item"><a href="?value=contacts" class="nav-link">Contacts</a></li>
-            <?php if (($_SESSION['rights'] != 1) && ($_SESSION['rights'] != 2) && ($_SESSION['rights'] != 3)){
+            <?php if (($_SESSION['rights'] != 1) && ($_SESSION['rights'] != 2)){
                 echo '<li class="nav-item"><a href="?value=login" class="nav-link">Login</a></li>';
                 
             } else if($_SESSION["rights"] == 1)
