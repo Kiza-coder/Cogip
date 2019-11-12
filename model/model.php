@@ -61,17 +61,20 @@ function queryDetailsInvoiceForCompany($id){
     $requestInv -> execute();
     return $requestInv;
 }
-
+#########added by laly ok fonctionne???##############
 function queryDetailsContactForCompany($id){
     $db = dbConnect();
-    $requestContact = $db -> prepare("SELECT first_name, last_name, contacts.phone AS ph, email 
-                                    FROM contacts
-                                    INNER JOIN companies ON id_companies = companies.id
-                                    WHERE companies.id=$id");
-    $requestContact -> execute();
-    return $requestContact;
+    $requestDetailsContactForCompany = $db -> prepare( "SELECT companies.id AS comp_id, first_name, last_name, phone, email
+    FROM companies
+    INNER JOIN contacts
+    ON companies.id_contacts = id.contacts
+    WHERE contact.id=$id"
+    );
+    $requestDetailsContactForCompany -> execute();
+    return $requestDetailsContactForCompany;
 }
-
+// probleme avec query "Column 'phone' in field list is ambiguous"
+########################################################
 // insert company //
 function queryType(){
     $db = dbConnect();
@@ -105,7 +108,7 @@ function queryDetailsContact($id){
     $req = $db -> prepare("SELECT contacts.id AS cont_id, first_name, last_name, phone, email 
                         FROM contacts 
                         INNER JOIN companies 
-                        ON contacts.id_companies = companies.id
+                        ON contacts.id_companies = id.companies
                         WHERE companies.id=$id");
     $req -> execute();
     return $req;

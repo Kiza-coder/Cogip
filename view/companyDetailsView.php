@@ -21,25 +21,12 @@ $type = $company['type_companies'];
     <th>Phone</th>
     <th>Email</th>
 </tr>
-<?php
-$copyDetailContact = $requestDetailContact -> fetchAll(PDO::FETCH_ASSOC);
-// var_dump($copyDetailContact);
-foreach($copyDetailContact as $key){
-    $firstname = $key['first_name'];
-    $lastname = $key['last_name'];
-    $phone = $key['ph'];
-    $email = $key['email'];
-    echo '<tr><td>'. $firstname . $lastname . '</td><td>' . $phone . '</td><td>' . $email . '</td></tr>' ;
-}
-?>
-</table>
-<?php
+ <?php
 ### CONTACT PERSONS ###
-$contact = $request -> fetchAll(PDO::FETCH_ASSOC);
-// var_dump($contact);
-
+$contact = $requestDetailContact -> fetchAll(PDO::FETCH_ASSOC);
+var_dump($contact);
 foreach ($contact as $key){
-    $url = $key['cont_id'];
+    $url = $key['comp_id'];
     $lastname = $key['last_name'];
     $firstname = $key['first_name'];
     $phone = $key['phone'];
@@ -49,6 +36,18 @@ echo <<<EOF
 <tr><td><a href="?id=$url&value=$valueoptions">$firstname$lastname</a></td><td>$phone</td><td>$email</td></tr>
 EOF;
 }
+// $copyDetailContact = $requestDetailContact -> fetchAll(PDO::FETCH_ASSOC);
+// // var_dump($copyDetailContact);
+// foreach($copyDetailContact as $key){
+//     $firstname = $key['first_name'];
+//     $lastname = $key['last_name'];
+//     $phone = $key['ph'];
+//     $email = $key['email'];
+//     echo '<tr><td>'. $firstname . $lastname . '</td><td>' . $phone . '</td><td>' . $email . '</td></tr>' ;
+// }
+?> 
+</table>
+<?php
 ?>
 </table>
 <!-- INVOICES RELATED TO COMPANIES -->
