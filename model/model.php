@@ -182,7 +182,7 @@ function queryInvoices(){
 
 function queryInvoicesDetails($id){
         $db = dbConnect();
-        $req = $db -> prepare("SELECT i.number, c.id AS c_id, cont.id AS cont_id, c.name, c.VAT, t.type_companies,cont.first_name, cont.last_name, cont.email, cont.phone, i.date, i.id AS in_id   FROM invoices AS i
+        $req = $db -> prepare("SELECT i.id AS inv_id, i.number, c.id AS c_id, cont.id AS cont_id, c.name, c.VAT, t.type_companies,cont.first_name, cont.last_name, cont.email, cont.phone, i.date, i.id AS in_id   FROM invoices AS i
          INNER JOIN companies AS c
           ON i.id_companies = c.id
          INNER JOIN type AS t
