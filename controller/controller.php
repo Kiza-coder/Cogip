@@ -50,7 +50,7 @@ function displayCompanyDetail($id){
 	$requestDetailClient = queryDetailsInvoiceForCompany($id);
 ###################### ADDED BY LALY OK? LOOK MODEL LIGNE 64 ##########################
 	$requestDetailContact = queryDetailsContactForCompany($id);
-#######################################################
+##############################################################################
     include 'view/companyDetailsView.php';
 }
 
