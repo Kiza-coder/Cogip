@@ -34,13 +34,13 @@ $_SESSION['rights'] = 1;
 
         <?php 
        if(isset($_GET['option_create'])){
-            if ($_GET['option_create'] == 'invoice'){
+            if ($_GET['option_create'] == 'invoice' && ($_SESSION['rights'] == 1) || ($_SESSION['rights'] == 2)){
                 insertInvoice();
             }
-            if ($_GET['option_create'] == 'company'){
+            if ($_GET['option_create'] == 'company' && ($_SESSION['rights'] == 1) || ($_SESSION['rights'] == 2)){
                 insertCompany();
             }
-            if($_GET['option_create'] == 'contact'){
+            if($_GET['option_create'] == 'contact' && ($_SESSION['rights'] == 1) || ($_SESSION['rights'] == 2)){
                 insertContact();
             }
             }

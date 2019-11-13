@@ -10,7 +10,7 @@
     $date = $contactDetails['date'];
     $value = 'contacts';
 
-if(isset($_GET['option_edit'])){
+if(isset($_GET['option_edit']) && $_SESSION['rights'] == 1){
     $req_companies = $reqCompany -> fetchAll(PDO::FETCH_ASSOC);
     
 echo <<<HTML
@@ -21,23 +21,30 @@ echo <<<HTML
 <form action="?id=$url&value=$value" method="post">
 <div class="card ml-auto mr-auto shadow-sm">
 
-<div class="row mb-2 mt-4 d-flex justify-content-around">
-<div class="form-group col-4 d-flex flex-column ml-5">
+<div class="row mb-2 mt-3">
+<div class="form-group col-4 d-flex flex-column offset-4">
 <label class="h4" for="lastname">Lastname :</label>
 <input class ="h5" type="text" name="lastname" value="$lastname">
 </div>
-<div class="form-group col-4 d-flex flex-column mr-5">
+</div>
+
+<div class="row mb-2 mt-3">
+<div class="form-group col-4 d-flex flex-column offset-4">
 <label class="h4" for="firstname">Firstname :</label>
 <input class ="h5" type="text" name="firstname" value="$firstname">
 </div>
 </div>
 
-<div class="row mb-2 mt-1 d-flex justify-content-around">
-<div class="form-group col-4 d-flex flex-column ml-5">
+
+<div class="row mb-2 mt-3">
+<div class="form-group col-4 d-flex flex-column offset-4">
 <label class="h4" for="email">Email :</label>
 <input class ="h5" type="text" name="email" value="$email">
 </div>
-<div class="form-group col-4 d-flex flex-column mr-5">
+</div>
+
+<div class="row mb-2 mt-3">
+<div class="form-group col-4 d-flex flex-column offset-4">
 <label class="h4" for="phone">Phone :</label>
 <input class ="h5" type="text" name="phone" value="$phone">
 </div>

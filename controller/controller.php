@@ -27,11 +27,11 @@ function displayDetailsContact($id) {
 function insertContact(){
 	require "assets/includes/sanitize.php";
 	$req = queryCompanie();
-    
     if(isset($_POST["send"])){
 		if(isEmptyForm()==true && isValidateForm($regEx)==true)
 		{
 			queryContactInsert();
+			header('Location: ./?value=contacts');
 		}
 	}
 	include 'view/contactInsertView.php';
