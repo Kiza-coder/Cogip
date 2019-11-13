@@ -46,11 +46,8 @@ function displayCompaniesClientsandProviders(){
 }
 function displayCompanyDetail($id){
     $req = queryDetailsCompany($id);
-    $request = queryDetailsContact($id);
 	$requestDetailClient = queryDetailsInvoiceForCompany($id);
-###################### ADDED BY LALY OK? LOOK MODEL LIGNE 64 ##########################
 	$requestDetailContact = queryDetailsContactForCompany($id);
-##############################################################################
     include 'view/companyDetailsView.php';
 }
 

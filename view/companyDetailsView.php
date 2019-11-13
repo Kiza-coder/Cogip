@@ -29,7 +29,7 @@ foreach ($contact as $key){
     $url = $key['comp_id'];
     $lastname = $key['last_name'];
     $firstname = $key['first_name'];
-    $phone = $key['phone'];
+    $phone = $key['cont_phone'];
     $email = $key['email'];
     $valueoptions = "contacts";
 echo <<<EOF

@@ -2,7 +2,10 @@
 session_start();
 
 require 'controller/controller.php';
+// tests
+//mode user
 $_SESSION["id"] = 2;
+// rights on CRUD 1=admin 2=moderator 
 $_SESSION['rights'] = 1;
 ?>
 <!DOCTYPE html>
@@ -31,7 +34,7 @@ $_SESSION['rights'] = 1;
     ?>
     <div class="container">
 
-
+<!-- button appears if the user is admin or moderator -->
         <?php 
        if(isset($_GET['option_create'])){
             if ($_GET['option_create'] == 'invoice'){
@@ -46,7 +49,7 @@ $_SESSION['rights'] = 1;
             }
             else if(isset($_GET['value'])){
          
- #### switch in for different button options in menu ###   
+ #### switch in for different buttons options in header menu ####   
         switch($_GET['value']){
             case 'home':
                 displayLastFive();

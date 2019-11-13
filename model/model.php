@@ -64,11 +64,9 @@ function queryDetailsInvoiceForCompany($id){
 #########added by laly ok fonctionne???##############
 function queryDetailsContactForCompany($id){
     $db = dbConnect();
-    $requestDetailsContactForCompany = $db -> prepare( "SELECT companies.id AS comp_id, first_name, last_name, phone, email
-    FROM companies
-    INNER JOIN contacts
-    ON companies.id_contacts = id.contacts
-    WHERE contact.id=$id"
+    $requestDetailsContactForCompany = $db -> prepare( "SELECT companies.id AS comp_id, first_name, last_name, contacts.phone 
+    AS cont_phone , email FROM companies INNER JOIN contacts ON companies.id = contacts.id_companies 
+    WHERE contacts.id=$id"
     );
     $requestDetailsContactForCompany -> execute();
     return $requestDetailsContactForCompany;
