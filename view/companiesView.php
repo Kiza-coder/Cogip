@@ -48,9 +48,9 @@ EOF;
         <div class="card">
             <div class="card-header">
             <?php
-$typecompany = $requesttype ->fetchAll(PDO::FETCH_ASSOC);
-$type = $typecompany[0]['id_type'];
-echo $type;
+
+$type = $typecompany[1]['id_type'];
+
 echo <<<EOF
 <a href="?id_type=$type&value=companies">Providers</a>
 EOF;

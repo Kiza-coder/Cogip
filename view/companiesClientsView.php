@@ -13,7 +13,6 @@
             <?php
 $companies_clients =  $req_clients-> fetchAll(PDO::FETCH_ASSOC);
 foreach ($companies_clients as $key){
-    $type = $key['id_type'];
     $url = $key['id'];
     $namecomp = $key['name'];
     $countrycomp = $key['country'];

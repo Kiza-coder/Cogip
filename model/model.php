@@ -4,7 +4,7 @@ function dbConnect()
 {
     try{
 
-        $db = new PDO ('mysql:host=database;dbname=Cogip','root','root');
+        $db = new PDO ('mysql:host=localhost;dbname=Cogip','root','');
     
         return $db;
     }
@@ -196,16 +196,16 @@ function queryInvoicesDetails($id){
 
 function queryInvoiceInsert()
 {
-        $date = date("m.d.y");
         $number = $_POST['number_invoice'];
         $id_companie = $_POST['companie_name'];
         $id_contact = $_POST['contact_name'];
+        $date = $_POST['date'];
         $db = dbConnect();
-        $req = $db -> prepare("INSERT INTO `invoices` (`date`, `number`, `id_companies`, `id_contacts`) VALUES (:new_date, :new_number, :new_id_compagnie, :new_id_contact)");
+        $req = $db -> prepare("INSERT INTO `invoices` (`date`, `number`, `id_companies`, `id_contacts`) VALUES (:new_date, :new_number, :new_id_companie, :new_id_contact)");
         $req->execute(array(
                 'new_date' => $date,
                 'new_number' => $number,
-                'new_id_compagnie' => $id_companie,
+                'new_id_companie' => $id_companie,
                 'new_id_contact' => $id_contact
         ));
 
@@ -215,14 +215,20 @@ function queryInvoiceInsert()
 function queryInvoiceEdit($id)
 {
     $db = dbConnect();
-    $req = $db -> prepare("UPDATE `invoices` SET `number` = :new_number, `date` = :new_date , `id_companies` = :new_id_companies, `id_contacts` = :new_id_companies WHERE invoices.id = $id");
+    $req = $db -> prepare("UPDATE `invoices` SET  `date` = :new_date ,`number` = :new_number, `id_companies` = :new_id_companies, `id_contacts` = :new_id_companies WHERE invoices.id = $id");
+    var_dump($req);
     $req ->execute(array(
-        'new_number' => $_POST['date'],
-        'new_date' => $_POST['number_invoice'],
+        'new_date' => $_POST['date'],
+        'new_number' => $_POST['number_invoice'],
         'new_id_companies' => $_POST['companie_name'],
         'new_id_contacts' => $_POST['contact_name']
     ));
 }
+
+
+
+
+
 
 ##query contact
 function queryContactId($id){

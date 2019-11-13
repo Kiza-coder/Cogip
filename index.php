@@ -2,6 +2,8 @@
 session_start();
 
 require 'controller/controller.php';
+
+
 $_SESSION["id"] = 2;
 $_SESSION['rights'] = 1;
 ?>
@@ -28,6 +30,11 @@ $_SESSION['rights'] = 1;
 <body class="bg-light pt-5">
     <?php 
         require "view/headerView.php";
+        var_dump($_SESSION['rights']);
+        if(!isset($_SESSION['rights'])){
+        login();
+    }
+    else{
     ?>
     <div class="container">
 
@@ -100,6 +107,7 @@ $_SESSION['rights'] = 1;
              else {
                 displayLastFive();
             }
+        }
 
      ?>
     </div>
