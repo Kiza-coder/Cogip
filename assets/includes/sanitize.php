@@ -25,6 +25,7 @@ function isEmptyForm()
 {
 	if(isset($_POST))
 	{
+		var_dump($_POST);
 		foreach($_POST as $key => $value)
 		{			
 			if(empty($_POST[$key]))
@@ -45,6 +46,7 @@ function isValidateForm($regEx)
 	$isValidate = true ;
 	foreach($_POST as $key => $value)
 	{
+		
 		if(!preg_match($regEx[$key],$_POST[$key]))
 		{
 			$isValidate = false;
