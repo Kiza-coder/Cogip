@@ -30,11 +30,6 @@ $_SESSION['rights'] = 1;
 <body class="bg-light pt-5">
     <?php 
         require "view/headerView.php";
-        var_dump($_SESSION['rights']);
-        if(!isset($_SESSION['rights'])){
-        login();
-    }
-    else{
     ?>
     <div class="container">
 
@@ -107,7 +102,7 @@ $_SESSION['rights'] = 1;
              else {
                 displayLastFive();
             }
-        }
+        
 
      ?>
     </div>
