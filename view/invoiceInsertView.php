@@ -52,5 +52,5 @@
             } 
         ?>
             </p>
-            <input type="submit" value="send" name="send">
+            <input type="submit" value="edit" name="edit">
         </form>
