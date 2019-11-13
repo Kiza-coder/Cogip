@@ -2,6 +2,7 @@
 <?php
 
 $invoices = $req -> fetch();
+
 $url = $invoices['in_id'];
 $url_contact = $invoices['cont_id'];
 $url_company = $invoices['c_id'];
@@ -27,7 +28,7 @@ echo <<<HTML
 <div class="card-shadow mt-5 mb-5">
 <div class ="card-header h1 text-center"> INVOICE : F-$numInvoice</div>
 </div>
-<form action="?id=$url&value=invoices&option_edit=1" method="post">
+<form action= "?id=$url&value=invoices&option_edit=1" method="post">
 <div class="card ml-auto mr-auto shadow-sm">
 <div class="row mb-2 mt-3">
 <div class="form-group d-flex flex-column col-4 offset-4">
@@ -43,7 +44,7 @@ echo <<<HTML
 </div>
 <div class="row mb-2 mt-1">
 <div class="form-group d-flex flex-column col-4 offset-4">
-<label class="h4" for="companie_name">Date:</label>
+<label class="h4" for="companie_name">Companie name:</label>
 <select name="companie_name" value="" onChange="submit();">
 HTML;
 ?>
@@ -80,7 +81,7 @@ echo <<<HTML
 </div>
 <div class="row mb-2 mt-1">
 <div class="form-group d-flex flex-column col-4 offset-4">
-<button type="submit" value="send" name="edit">Send</button>
+<button type="submit" value="edit" name="edit">Send</button>
 </div>
 </div>
 </form>

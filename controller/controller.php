@@ -6,7 +6,10 @@ function displayContact(){
     include 'view/contactsView.php';
 }
 
-function displayDetailsContact($id) {
+
+
+
+function displayDetailsContact($id){
 	include 'assets/includes/sanitize.php';
 	$req = queryContactDetails($id);
 	$request = queryContactDetailsInvoices($id);
@@ -20,9 +23,10 @@ function displayDetailsContact($id) {
 			}
 		}
 		include 'view/contactsDetailsView.php';
-
-
 }
+
+
+
 
 function insertContact(){
 	require "assets/includes/sanitize.php";
@@ -69,6 +73,7 @@ function insertCompany(){
 		if(isEmptyForm()==true && isValidateForm($regEx)==true)
 		{
 			queryCompanyInsert();
+
 		}
 	}
 
@@ -94,10 +99,13 @@ function displayInvoicesDetails($id){
 			if(isEmptyForm()==true && isValidateForm($regEx)==true)
 			{
 				queryInvoiceEdit($id);
+				header('Location: ./?value=invoices');
 			}
 	}	
 	include 'view/invoicesDetailsView.php';
 }
+
+
 
 function insertInvoice(){
 	$req_companie = queryCompanie();
@@ -118,12 +126,14 @@ function insertInvoice(){
 ##function login
 function login(){
 	include 'assets/includes/sanitize.php';
+	
 	if(isset($_POST["send"]))
 	{
 
 		if(isEmptyForm()==true && isValidateForm($regEx)==true)
 		{
 			$req = queryUserByUsername($_POST['login']);
+			var_dump($req);
 			include 'view/loginView.php';
 			
 		}
